@@ -2,8 +2,10 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  background-color: beige;
 }
 .web-skeleton{
   display: grid;
+}
+.box-area{
+  width: 930px;
 }
