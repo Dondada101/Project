@@ -21,18 +21,18 @@
           <div class="header-text mb-4">
             <p class="h3 " style="color: blue;">Sign Up</p>
           </div>
-          <form action="" method="post">
+          <form action="includes/su1.php" method="post">
           <div class="imput-group mb-3">
-            <input type="text" class="form-control form-control-lg bg-light fs-6 " placeholder="Username" name="username" required>
+            <input type="text" class="form-control form-control-lg bg-light fs-6 " placeholder="Username" name="uname" >
           </div>
           <div class="imput-group mb-3">
-            <input type="email" class="form-control form-control-lg bg-light fs-6 "  name="email" placeholder="Email Address" required>
+            <input type="email" class="form-control form-control-lg bg-light fs-6 "  name="email" placeholder="Email Address" >
           </div>
           <div class="imput-group mb-3">
-            <input type="password" class="form-control form-control-lg bg-light fs-6 " placeholder="Password" name="password" required>
+            <input type="password" class="form-control form-control-lg bg-light fs-6 " placeholder="Password" name="password" >
           </div>
           <div class="imput-group mb-3">
-            <input type="password" class="form-control form-control-lg bg-light fs-6 " placeholder="Confirm Password" required>
+            <input type="password" class="form-control form-control-lg bg-light fs-6 " placeholder="Confirm Password" name="cpassword" >
           </div>
           <div class="input-group mb-3">
             <button type="submit" class="btn btn-lg btn-primary w-100 fs-6">Login</button>
