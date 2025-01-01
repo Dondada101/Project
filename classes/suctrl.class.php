@@ -1,5 +1,5 @@
 <?php
-class Suctrl {
+class Suctrl extends Su{
     private $uname;
     private $email;
     private $pw;
@@ -14,7 +14,7 @@ class Suctrl {
     public function signup(){
         
         if($this->emptysu()==false){
-            header("location: ../index.php?error=emptyfields&message=emptyfields");
+            header("location: ../index.php?error=emptyfields");
             exit();
         }
         if($this->invalidun()==false){
@@ -37,14 +37,14 @@ class Suctrl {
             header("location: ../index.php?error=Password must contain letters and numbers");
             exit();
         }
-        // if($this->pwm()==false){
-        //     header("location: ../index.php?error=emailExists");
-        //     exit();
-        // }
+        if($this->pwm()==false){
+            header("location: ../index.php?error=emailExists");
+            exit();
+        }
         else{
             $result= false;
         }
-        // $this->setuser($this->uname,$this->email,$this->pw); 
+        $this->setuser($this->uname,$this->email,$this->pw); 
         
     }
     private function emptysu( ){
@@ -86,15 +86,15 @@ class Suctrl {
         }
         return $result;
     }
-    // private function pwm( ){
-    //     $result=null;
-    //     if(!$this->checkUser($this->email)){
-    //         $result=false;
-    //     }else{
-    //         $result=true;
-    //     }
-    //     return $result;
-    // }
+    private function pwm( ){
+        $result=null;
+        if($this->checkUser($this->email)){
+            $result=false;
+        }else{
+            $result=true;
+        }
+        return $result;
+    }
     private function pwlength(){
         $pw=trim($this->pw);
         if(strlen($pw) <8){ 
@@ -115,7 +115,7 @@ class Suctrl {
         }
         return $result;
     }
-  //  public function fetchuid($uid){
-  //   $user=$this->getUID($uid);
-  //  }
+   public function fetchuid($uid){
+    $user=$this->getUID($uid);
+   }
 }
