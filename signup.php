@@ -8,7 +8,7 @@
   <link rel="stylesheet" href="styles/style2.css">
 </head>
 <body>
-  <div class="container d-flex justify-content-centre align-items-center min-vh-100">
+  <div class="container d-flex justify-content-center align-items-center min-vh-100">
     <div class="row border rounder-5 p-3 bg-white shadow box-area">
       <div class="col-md-6">
         <div class="image">

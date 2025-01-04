@@ -8,7 +8,7 @@
   <link rel="stylesheet" href="styles/style2.css">
 </head>
 <body>
-  <div class="container d-flex justify-content-centre align-items-center min-vh-100">
+  <div class="container d-flex justify-content-center align-items-center min-vh-100">
     <div class="row border rounder-5 p-3 bg-white shadow box-area">
       <div class="col-md-6">
         <div class="image">
@@ -21,7 +21,7 @@
           <div class="header-text mb-4">
             <p class="h3 " style="color: blue;">Login</p>
           </div>
-          <form action="" method="post">
+          <form action="includes/login.php" method="post">
           <div class="imput-group mb-3">
             <input type="email" class="form-control form-control-lg bg-light fs-6 "  name="email" placeholder="Email Address" >
           </div>
