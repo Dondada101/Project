@@ -1,4 +1,5 @@
 <?php
+session_start();
 //Importing Content from ex file
 require_once"classes/layout.php";
 require_once"contents/contents.php";
@@ -9,7 +10,7 @@ $Objcontent=new contents();
 //Invoke a method/function
 $Objlayout->header();
 $Objcontent->navBar();
-$Objcontent->homePage();
+$Objcontent->contentPage();
 $Objcontent->about();
 $Objlayout->footer();
 //  

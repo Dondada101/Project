@@ -4,5 +4,118 @@
   box-sizing: border-box;
 }
 .web-skeleton{
+  height: 100vh;
   display: grid;
+  grid-template-rows: 65px auto 35px ;
+  grid-template-columns: repeat(2,1fr);
+  grid-template-areas: 
+  'hd hd'
+  'mn mn'
+  'ft ft';
+
+}
+.web-skeleton .navbar{
+  background-color:rgb(11, 40, 65);
+  grid-area: hd;
+  display: flex;
+  flex-direction: row;
+  gap: 10em;
+ /*align-items: center;*/
+}
+.web-skeleton .contentPage{
+  background-color:aliceblue;
+  grid-area: mn;
+}
+.web-skeleton .about{
+  background-color: #fff;
+  grid-area: ft;
+}
+.web-skeleton .navbar #pages{
+  background-color:transparent;
+  
+}
+.web-skeleton .navbar #pages ul{
+  display: flex;
+  flex-direction: row-reverse;
+  list-style: none;
+  align-items: center;
+
+}
+.web-skeleton .navbar #pages ul li{
+   padding: 30px 40px 5px 40px;
+}
+.web-skeleton .navbar .box{
+  height: 30px;
+  display: flex;
+  cursor: pointer;
+  padding: 10px 20px;
+  background-color: white;
+  border-radius: 30px;
+  align-items: center;
+  margin-top: 20px;
+}
+.web-skeleton .navbar .box:hover input{
+  width: 300px;
+}
+.web-skeleton .navbar .box input{
+  width: 0;
+  outline: none;
+  border: none;
+  font-size: 500;
+  background: transparent;
+  transition: 0.8s;
+}
+.web-skeleton .navbar .box a .fas{
+  color: #000;
+  font-size: 15px;
+}
+.web-skeleton .navbar #pages ul li a{
+  align-items: center;
+  color: #fff;
+  text-decoration: none;
+  font-size: 24px;
+}
+.web-skeleton .navbar #logo{
+  font-size: 40px;
+  font-family: "Edu AU VIC WA NT Arrows", cursive;
+  font-optical-sizing: auto;
+  font-weight: 600;
+  font-style: normal;
+  color: #fff;
+}
+.htable{
+  position: relative;
+  max-height: 800px;
+  overflow: hidden;
+  transition:max-height 0.5s;
+}
+.htable .ht{
+  border-collapse: collapse;
+  margin: 25px 2rem;
+  font-size: .9em;
+  width: 1200px;
+  min-width: 400px;
+  border-radius: 5px 5px 0 0;
+  overflow: hidden;
+  box-shadow: 0 0 20px rgba(0,0,0,.15);
+}
+.htable .ht thead tr{
+  background-color: cornflowerblue;
+  text-align: left;
+  font-weight: bold;
+}
+.htable .ht th,
+.htable .ht td{
+  padding: 12px 15px;
+
+}
+.htable .ht tbody tr{
+  border-bottom: 1px solid #444;
+  transition: transform 0.5s;
+}
+.htable .ht tbody tr:nth-of-type(even){
+  background-color: #f3f3f3;
+}
+.htable .ht tbody tr:last-of-type{
+  border-bottom: 2px solid cornflowerblue;
 }
