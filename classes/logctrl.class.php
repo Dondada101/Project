@@ -15,7 +15,8 @@ class Logctrl extends Login{
             exit();
         }
         $this->getuser($this->email,$this->pw); 
-        
+        $this->generateCode();
+        $this->sendMail($this->email);
     }
     private function emptysu( ){
         $result=false;

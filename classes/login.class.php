@@ -1,15 +1,19 @@
 <?php
-require 'vendor/autoload.php'; 
+require '../vendor/autoload.php'; 
 use PHPMailer\PHPMailer\PHPMailer; 
 use PHPMailer\PHPMailer\Exception; 
-use Kinde\TwoFactorAuth\TwoFactorAuth;
-
+//use Kinde\TwoFactorAuth\TwoFactorAuth;
+session_start();
 class Login extends Conn {
 
-    private $twoFactorAuth;
+    private $vCode;
 
+    protected function generateCode(){
+        $this->vCode = rand(100000, 999999);
+        $_SESSION['verification_code'] = $this->vCode;
+        echo "Generated code: {$this->vCode}<br>";
+ }
     protected function getuser($email,$pw){
-        $vCode=generateCode();
         $stmt = $this->connect()->prepare("SELECT upassword FROM users WHERE email=?;");
         
         if(!$stmt->execute(array($email))){
@@ -46,19 +50,18 @@ class Login extends Conn {
             }
             $user=$stmt->fetchAll(PDO::FETCH_ASSOC);
             
-            sendMail($email,$vCode);
-            session_start();
-            $_SESSION["userid"]=$user[0]["id"];
-            $_SESSION['un']=$user[0]['uname'];
+            // session_start();
+            // $_SESSION["userid"]=$user[0]["id"];
+            // $_SESSION['un']=$user[0]['uname'];
             $stmt=null;
            }
         
            $stmt=null;
      }
     
-     public function sendMail($email, $verification_code){
+     public function sendMail($email){
     $mail = new PHPMailer(true);
-    $verification_code=generateCode();
+    $verification_code=rand(100000, 999999);
 
     try {
         //Server settings
@@ -66,19 +69,19 @@ class Login extends Conn {
         $mail->Host       = 'smtp.gmail.com';                     //Set the SMTP server to send through
         $mail->SMTPAuth   = true;                                   //Enable SMTP authentication
         $mail->Username   = 'lisledon944@gmail.com';                     //SMTP username
-        $mail->Password   = 'YOUR_PASSWORD_SHOULD_GO_HERE';                               //SMTP password
+        $mail->Password   = 'hdetwqiryoqervhj';                               //SMTP password
         $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;            //Enable implicit TLS encryption
         $mail->Port       = 465;                                    //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
         //Recipients
-        $mail->setFrom('lisledon944@gmail.com', 'CodingShodingWithNJ');
+        $mail->setFrom('lisledon944@gmail.com', 'blah');
         $mail->addAddress($email);     //Add a recipient
 
         //Content
         $mail->isHTML(true);                                  //Set email format to HTML
         $mail->Subject = 'Here is the subject';
-        $mail->Body    = "Thanks for Registering with us. To activate your account click $verification_code";
+        $mail->Body    = "Thanks for Registering with us. To activate your account enter this code {$this->vCode}";
         $mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
-
+        echo "Generatedb code: $this->vCode<br>";
         $mail->send();
         // echo 'Message has been sent';
     } catch (Exception $e) {
@@ -86,7 +89,11 @@ class Login extends Conn {
     }
 }
 
-    public function generateCode(){
-        return rand(100000, 999999);
+   
+ public function verifyCode($userCode) { 
+    return $userCode == $_SESSION['verification_code'];
+ }
+ public function clearCode() { 
+    unset($_SESSION['verification_code']);
  }
 }

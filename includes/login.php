@@ -7,5 +7,5 @@ if($_SERVER["REQUEST_METHOD"]==="POST"){
   require "../classes/logctrl.class.php";
   $su=new Logctrl($email,$pw);
   $su->login();
-  header("location: ../index.php");
+  header("location: ../verifyUser.php");
 }
