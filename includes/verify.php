@@ -8,6 +8,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   if ($apiTwoFactor->verifyCode($userCode)) {
      echo "Verification successful! Access granted."; 
      $apiTwoFactor->clearCode();
+     session_start();
+     $_SESSION['Connect']='Login verified';
      header("location: ../index.php");
      } else { 
       echo "Verification failed. Please try again.";

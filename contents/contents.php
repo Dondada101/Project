@@ -12,6 +12,9 @@ class contents{
       <li><a href="">Home</a></li>
       <li><a href="">Home</a></li>
       <li><a href="">Home</a></li> -->
+      <div class="logout"> 
+                <p> <a href="./logout.php">log Out</a></p>
+            </div>
     </ul>
     </div>
     

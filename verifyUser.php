@@ -29,9 +29,6 @@
             <button type="submit" class="btn btn-lg btn-primary w-100 fs-6">Verify</button>
           </div>
           </form>
-          <div class="row">
-            <small>lready a Member <a href="login.php">Login</a></small>
-          </div>
         </div>
       </div>
     </div>

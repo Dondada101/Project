@@ -39,7 +39,7 @@
           </div>
           </form>
           <div class="row">
-            <small>lready a Member <a href="login.php">Login</a></small>
+            <small>Already a Member <a href="login.php">Login</a></small>
           </div>
         </div>
       </div>
