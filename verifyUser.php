@@ -21,18 +21,18 @@
           <div class="header-text mb-4">
             <p class="h3 " style="color: blue;">Verify</p>
           </div>
-          <form action="includes/verify.php" method="post">
-          <div class="verify imput-group mb-3 d-flex">
-            <input type="text" class="form-control form-control-lg bg-light fs-6 " maxlength="1">
-            <input type="text" class="form-control form-control-lg bg-light fs-6 " maxlength="1">
-            <input type="text" class="form-control form-control-lg bg-light fs-6 " maxlength="1">
-            <input type="text" class="form-control form-control-lg bg-light fs-6 " maxlength="1">
-            <input type="text" class="form-control form-control-lg bg-light fs-6 " maxlength="1">
-            <input type="text" class="form-control form-control-lg bg-light fs-6 " maxlength="1">
+          <form onsubmit="return false;">
+          <div class="verify1 imput-group mb-3 d-flex">
+            <input type="text" class="form-control form-control-lg bg-light fs-6 verify" maxlength="1" name="user_code" >
+            <input type="text" class="form-control form-control-lg bg-light fs-6 verify" maxlength="1" name="user_code" >
+            <input type="text" class="form-control form-control-lg bg-light fs-6 verify " maxlength="1" name="user_code">
+            <input type="text" class="form-control form-control-lg bg-light fs-6 verify " maxlength="1" name="user_code">
+            <input type="text" class="form-control form-control-lg bg-light fs-6 verify " maxlength="1" name="user_code">
+            <input type="text" class="form-control form-control-lg bg-light fs-6 verify " maxlength="1" name="user_code">
 
           </div>
           <div class="input-group mb-3">
-            <button type="submit" class="btn btn-sm btn-primary w-60 fs-6">Verify</button>
+            <button  onclick="submitCode()" class="btn btn-sm btn-primary w-60 fs-6">Verify</button>
           </div>
           </form>
         </div>
@@ -40,6 +40,7 @@
     </div>
   </div>
   <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
+  <script src="./jss/js1.js"></script>
 </body>
 </html>
 
