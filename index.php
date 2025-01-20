@@ -1,7 +1,7 @@
 <?php
 session_start();
 if(isset($_SESSION['Connect'])){
-  var_dump($_SESSION['Connect']);
+  //var_dump($_SESSION['Connect']);
 //Importing Content from ex file
 require_once"classes/layout.php";
 require_once"contents/contents.php";

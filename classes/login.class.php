@@ -78,8 +78,8 @@ class Login extends Conn {
 
         //Content
         $mail->isHTML(true);                                  //Set email format to HTML
-        $mail->Subject = 'Here is the subject';
-        $mail->Body    = "Thanks for Registering with us. To activate your account enter this code {$this->vCode}";
+        $mail->Subject = 'I-Check';
+        $mail->Body    = "Thanks for coming back to us. To log in enter this code {$this->vCode}";
         $mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
         echo "Generatedb code: $this->vCode<br>";
         $mail->send();

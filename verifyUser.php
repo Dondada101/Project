@@ -22,11 +22,17 @@
             <p class="h3 " style="color: blue;">Verify</p>
           </div>
           <form action="includes/verify.php" method="post">
-          <div class="imput-group mb-3">
-            <input type="text" class="form-control form-control-lg bg-light fs-6 " placeholder="Enter code here" id="user_code" name="user_code" required >
+          <div class="verify imput-group mb-3 d-flex">
+            <input type="text" class="form-control form-control-lg bg-light fs-6 " maxlength="1">
+            <input type="text" class="form-control form-control-lg bg-light fs-6 " maxlength="1">
+            <input type="text" class="form-control form-control-lg bg-light fs-6 " maxlength="1">
+            <input type="text" class="form-control form-control-lg bg-light fs-6 " maxlength="1">
+            <input type="text" class="form-control form-control-lg bg-light fs-6 " maxlength="1">
+            <input type="text" class="form-control form-control-lg bg-light fs-6 " maxlength="1">
+
           </div>
           <div class="input-group mb-3">
-            <button type="submit" class="btn btn-lg btn-primary w-100 fs-6">Verify</button>
+            <button type="submit" class="btn btn-sm btn-primary w-60 fs-6">Verify</button>
           </div>
           </form>
         </div>

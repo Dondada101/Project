@@ -11,7 +11,7 @@ class Logctrl extends Login{
     public function login(){
         
         if($this->emptysu()==false){
-            header("location: ../index.php?error=emptyfields");
+            header("location: ../login.php?error=emptyfields");
             exit();
         }
         $this->getuser($this->email,$this->pw); 

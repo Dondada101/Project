@@ -14,31 +14,31 @@ class Suctrl extends Su{
     public function signup(){
         
         if($this->emptysu()==false){
-            header("location: ../index.php?error=emptyfields");
+            header("location: ../signup.php?error=emptyfields");
             exit();
         }
         if($this->invalidun()==false){
-            header("location: ../index.php?error=Invalidusername");
+            header("location: ../signup.php?error=Invalidusername");
             exit();
         }
         if($this->invalidemail()==false){
-            header("location: ../index.php?error=invalidemail");
+            header("location: ../signup.php?error=invalidemail");
             exit();
         }
         if($this->pwmatch()==false){
-            header("location: ../index.php?error=Password do not match");
+            header("location: ../signup.php?error=Password do not match");
             exit();
         }
         if($this->pwlength()==false){
-            header("location: ../index.php?error=Password is below 8characters");
+            header("location: ../signup.php?error=Password is below 8characters");
             exit();
         } 
         if($this->pwcheck()==false){
-            header("location: ../index.php?error=Password must contain letters and numbers");
+            header("location: ../signup.php?error=Password must contain letters and numbers");
             exit();
         }
         if($this->pwm()==false){
-            header("location: ../index.php?error=emailExists");
+            header("location: ../signup.php?error=emailExists");
             exit();
         }
         else{

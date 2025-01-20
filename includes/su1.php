@@ -9,5 +9,5 @@ if($_SERVER["REQUEST_METHOD"]==="POST"){
     require "../classes/suctrl.class.php";
     $su=new Suctrl($uname,$email,$pw,$cpw);
     $su->signup();
-    header("location: ../index.php");
+    header("location: ../login.php");
 }
