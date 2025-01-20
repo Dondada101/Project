@@ -9,3 +9,10 @@
       margin: 0 5px;
       border-radius: 5px; 
     }
+
+.hidden{
+  display: none;
+}
+.hidden input{
+  display: none;
+}

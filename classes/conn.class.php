@@ -15,7 +15,7 @@ class Conn {
         try {
           $dsn = "pgsql:host={$this->host};port={$this->port};dbname={$this->db};"; 
           $con=$this->pdo = new PDO($dsn, $this->user, $this->pass, [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION]);
-           echo "Connected to the PostgreSQL database successfully!";
+          // echo "Connected to the PostgreSQL database successfully!";
            return $con;
         } catch (PDOException $e) {
           echo "Connection failed: " . $e->getMessage(); 

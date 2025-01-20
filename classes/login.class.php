@@ -11,7 +11,7 @@ class Login extends Conn {
     protected function generateCode(){
         $this->vCode = rand(100000, 999999);
         $_SESSION['verification_code'] = $this->vCode;
-        echo "Generated code: {$this->vCode}<br>";
+       // echo "Generated code: {$this->vCode}<br>";
  }
     protected function getuser($email,$pw){
         $stmt = $this->connect()->prepare("SELECT upassword FROM users WHERE email=?;");
@@ -58,7 +58,23 @@ class Login extends Conn {
         
            $stmt=null;
      }
-    
+    protected function getEmail($email){
+        $stmt = $this->connect()->prepare("SELECT email FROM users WHERE email=?;");
+        
+        if(!$stmt->execute(array($email))){
+         $stmt=null;
+         header("location:../index.php?error=stmtfailed");
+         exit(); 
+        }
+        if($stmt->rowCount()==0){
+            $stmt=null;
+         header("location:../index.php?error=usernotfound");
+         exit(); 
+        } 
+        //echo "Emil exists".$email;
+        // $email1=$stmt->fetchAll(PDO::FETCH_ASSOC);
+        // return $email1;
+    }
      public function sendMail($email){
     $mail = new PHPMailer(true);
     $verification_code=rand(100000, 999999);
@@ -69,7 +85,7 @@ class Login extends Conn {
         $mail->Host       = 'smtp.gmail.com';                     //Set the SMTP server to send through
         $mail->SMTPAuth   = true;                                   //Enable SMTP authentication
         $mail->Username   = 'lisledon944@gmail.com';                     //SMTP username
-        $mail->Password   = 'ohwattpqepskrnfi';                               //SMTP password
+        $mail->Password   = 'khrfowvhkmrqlcta';                               //SMTP password
         $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;            //Enable implicit TLS encryption
         $mail->Port       = 465;                                    //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
         //Recipients
@@ -81,7 +97,7 @@ class Login extends Conn {
         $mail->Subject = 'I-Check';
         $mail->Body    = "Thanks for coming back to us. To log in enter this code {$this->vCode}";
         $mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
-        echo "Generatedb code: $this->vCode<br>";
+        //echo "Generatedb code: $this->vCode<br>";
         $mail->send();
         // echo 'Message has been sent';
     } catch (Exception $e) {

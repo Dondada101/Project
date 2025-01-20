@@ -34,6 +34,8 @@
           </form>
           <div class="row">
             <small>Do Not Have an Account? <a href="signup.php">Sign Up</a></small>
+            <p><a href="fpw.php">Forgot Password</a></p>
+
           </div>
         </div>
       </div>
