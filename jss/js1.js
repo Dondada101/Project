@@ -54,20 +54,22 @@ function submitForm(event){
     })
     .catch(error=>console.error('Error',error));
   }else{
-    let vCode=document.querySelectorAll('.verify')
-    let iCode='';
-    vCode.forEach(input=>{
-    iCode += input.value;
+    let vCode1=document.querySelectorAll('.verify')
+    let iCode1='';
+    vCode1.forEach(input=>{
+    iCode1 += input.value;
     });
+    console.log('The code is'+iCode1);
     fetch('./includes/fpassword.php',{
       method:'POST',
       headers:{
         'Content-type':'application/x-www-form-urlencoded'
       },
-      body:new URLSearchParams({ user_code: iCode })
+      body:new URLSearchParams({user_code:iCode1 })
     })
     .then(res=>res.text())
     .then(data=>{
+      console.log("This is the data"+data)
       if(data==='Verified'){
         document.getElementById('pwField').classList.remove('hidden');
         document.getElementById('cpwField').classList.remove('hidden');
@@ -79,6 +81,28 @@ function submitForm(event){
     })
     .catch(error=>console.error('Error',error));
   }
+  if(emailVerified && document.getElementById('submitBtn').textContent === 'Change Password') { 
+    let newPassword = document.getElementById('pwField').value; 
+    let confirmPassword = document.getElementById('cpwField').value; 
+    if (newPassword === confirmPassword) {
+       fetch('./includes/fpassword.php', {
+         method: 'POST', 
+         headers: { 'Content-Type': 'application/x-www-form-urlencoded' }, 
+         body: new URLSearchParams({ new_password: newPassword, confirm_password: confirmPassword }) 
+        }) 
+        .then(res => res.text()) 
+        .then(data => { 
+          console.log('Response received:', data);
+           if (data === 'Password Changed') {
+             alert('Password successfully changed'); 
+            } else { 
+              alert('Password change failed'); } 
+            })
+         .catch(error => console.error('Error', error)); 
+        } else { 
+          alert('Passwords do not match'); 
+        } 
+      }
 
   
 }

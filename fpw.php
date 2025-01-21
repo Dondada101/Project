@@ -34,14 +34,14 @@
             <input type="text" class="form-control form-control-lg bg-light fs-6 verify " maxlength="1" name="user_code">
 
           </div>
-          <div class="imput-group mb-3" id="pwField">
-            <input type="text" class="hidden form-control form-control-lg bg-light fs-6 "  name="password" placeholder="Email Address" >
+          <div class="hidden imput-group mb-3" id="pwField">
+            <input type="text" class=" form-control form-control-lg bg-light fs-6 "  name="password" placeholder="New Password" >
           </div>
-          <div class="imput-group mb-3" id="cpwField">
-            <input type="text" class=" hidden form-control form-control-lg bg-light fs-6 " placeholder="Password" name="cpassword" >
+          <div class=" hidden imput-group mb-3" id="cpwField">
+            <input type="text" class="  form-control form-control-lg bg-light fs-6 " placeholder="Confirm Password" name="cpassword" >
           </div>
-          <div class="input-group mb-3" id="submitBtn">
-            <button type="submit" class="btn btn-lg btn-primary w-100 fs-6">Login</button>
+          <div class="input-group mb-3" >
+            <button type="submit" id="submitBtn" class="btn btn-lg btn-primary w-100 fs-6">Login</button>
           </div>
           </form>
         </div>
