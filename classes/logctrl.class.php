@@ -34,6 +34,24 @@ class Logctrl extends Login{
         $this->generateCode();
         $this->sendMail($this->email);
     }
+    public function updatePassword($newPassword) { 
+        $hashedPassword = password_hash($newPassword, PASSWORD_DEFAULT); 
+        $conn = new Conn(); 
+        $db = $conn->connect();
+         $sql = "UPDATE users SET upassword = :password WHERE email = :email"; 
+         $stmt = $db->prepare($sql); 
+         if ($stmt === false) {
+             echo "Error preparing statement: " . $db->errorInfo(); 
+             return; 
+            } 
+            $stmt->bindParam(':password', $hashedPassword);
+            $stmt->bindParam(':email', $this->email); 
+             if($stmt->execute()) {
+                // echo "Password Changed"; 
+                } else { 
+                    echo "Error updating password: " . implode(", ", $stmt->errorInfo()); 
+                } 
+            }
     private function emptysu( ){
         $result=false;
         if(empty($this->email) || empty($this->pw)){

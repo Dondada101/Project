@@ -29,16 +29,39 @@ function submitCode(){
   .catch(error => console.error('Error:', error));
 }
 let emailVerified=false;
+let storedEmail = '';
 function submitForm(event){
   event.preventDefault();
-  if(!emailVerified){
+  if(emailVerified && document.getElementById('submitBtn').textContent === 'Change Password') { 
+    let newPassword = document.getElementById('pw').value; 
+    let confirmPassword = document.getElementById('cpw').value; 
+    if (newPassword === confirmPassword) {
+       fetch('./includes/fpassword.php', {
+         method: 'POST', 
+         headers: { 'Content-Type': 'application/x-www-form-urlencoded' }, 
+         body: new URLSearchParams({ new_password: newPassword, confirm_password: confirmPassword ,email: storedEmail}) 
+        }) 
+        .then(res => res.text()) 
+        .then(data => { 
+          console.log('Response received:', data);
+           if (data === 'Password Changed') {
+             alert('Password successfully changed'); 
+            } else { 
+              alert('Password change failed'); } 
+            })
+         .catch(error => console.error('Error', error)); 
+        } else { 
+          alert('Passwords do not match'); 
+        } 
+      }else if(!emailVerified){
     let email=document.getElementById('email').value;
+    storedEmail = email;
     fetch('./includes/fpassword.php',{
       method:'POST',
       headers: {
         'Content-Type': 'application/x-www-form-urlencoded'
       },
-      body: new URLSearchParams({email:email})
+      body: new URLSearchParams({email:email,action: 'verify_email'})
     })
     .then(res=>res.text())
     .then(data=>{
@@ -82,13 +105,13 @@ function submitForm(event){
     .catch(error=>console.error('Error',error));
   }
   if(emailVerified && document.getElementById('submitBtn').textContent === 'Change Password') { 
-    let newPassword = document.getElementById('pwField').value; 
-    let confirmPassword = document.getElementById('cpwField').value; 
+    let newPassword = document.getElementById('pw').value; 
+    let confirmPassword = document.getElementById('cpw').value; 
     if (newPassword === confirmPassword) {
        fetch('./includes/fpassword.php', {
          method: 'POST', 
          headers: { 'Content-Type': 'application/x-www-form-urlencoded' }, 
-         body: new URLSearchParams({ new_password: newPassword, confirm_password: confirmPassword }) 
+         body: new URLSearchParams({ new_password: newPassword, confirm_password: confirmPassword ,email: storedEmail}) 
         }) 
         .then(res => res.text()) 
         .then(data => { 
@@ -103,6 +126,4 @@ function submitForm(event){
           alert('Passwords do not match'); 
         } 
       }
-
-  
 }

@@ -35,10 +35,10 @@
 
           </div>
           <div class="hidden imput-group mb-3" id="pwField">
-            <input type="text" class=" form-control form-control-lg bg-light fs-6 "  name="password" placeholder="New Password" >
+            <input type="text" class=" form-control form-control-lg bg-light fs-6 "  name="password" placeholder="New Password" id="pw" >
           </div>
           <div class=" hidden imput-group mb-3" id="cpwField">
-            <input type="text" class="  form-control form-control-lg bg-light fs-6 " placeholder="Confirm Password" name="cpassword" >
+            <input type="text" class="  form-control form-control-lg bg-light fs-6 " placeholder="Confirm Password" name="cpassword" id="cpw" >
           </div>
           <div class="input-group mb-3" >
             <button type="submit" id="submitBtn" class="btn btn-lg btn-primary w-100 fs-6">Login</button>
