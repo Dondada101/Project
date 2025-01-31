@@ -84,12 +84,12 @@ class Login extends Conn {
         $mail->isSMTP();                                            //Send using SMTP
         $mail->Host       = 'smtp.gmail.com';                     //Set the SMTP server to send through
         $mail->SMTPAuth   = true;                                   //Enable SMTP authentication
-        $mail->Username   = '';                     //SMTP username
+        $mail->Username   = 'lisledon944@gmail.com';                     //SMTP username
         $mail->Password   = 'khrfowvhkmrqlcta';                               //SMTP password
         $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;            //Enable implicit TLS encryption
         $mail->Port       = 465;                                    //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
         //Recipients
-        $mail->setFrom('', 'blah');
+        $mail->setFrom('lisledon944@gmail.com', 'blah');
         $mail->addAddress($email);     //Add a recipient
 
         //Content
