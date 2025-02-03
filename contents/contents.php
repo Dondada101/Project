@@ -31,6 +31,8 @@ class contents{
       <li><a href="">Home</a></li> -->
       <div class="logout"> 
                 <p> <a href="./logout.php">log Out</a></p>
+                <i class="fas fa-user" id="loginbtn"></i>
+                <i class=" fas fa-solid fa-message"></i>
             </div>
     </ul>
     </div>

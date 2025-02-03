@@ -23,6 +23,34 @@
   justify-content: space-between;
  align-items: baseline;
 }
+.web-skeleton .navbar .logout{
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}
+.web-skeleton .navbar .logout p{
+  border: 2px solid #fff;
+  padding: 10px 10px 5px 10px;
+  background-color: #f3f3f3;
+}
+.web-skeleton .navbar .logout p:hover{
+  background-color: transparent;
+  color: #fff;
+  border: none;
+}
+.web-skeleton .navbar .logout p a{
+  text-decoration: none;
+  color: #000;
+}
+.web-skeleton .navbar .logout p a:hover{
+  color: #fff;
+  font-size: 20px;
+}
+.web-skeleton .navbar .logout .fas{
+  color: #fff;
+  cursor: pointer;
+  padding: 8px 5px 4px 5px;
+}
 .web-skeleton .contentPage{
   background-color:aliceblue;
   grid-area: mn;
