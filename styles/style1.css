@@ -20,11 +20,68 @@
   display: flex;
   flex-direction: row;
   gap: 10em;
- /*align-items: center;*/
+  justify-content: space-between;
+ align-items: baseline;
 }
 .web-skeleton .contentPage{
   background-color:aliceblue;
   grid-area: mn;
+  display: grid;
+  grid-template-areas: 
+  "hh hv vh"
+  "vv vn nv"
+  ;
+  grid-gap: 8px;
+  grid-template-rows: auto;
+  padding: 10px 10px 10px 10px;
+}
+.contentPage #grid1{
+  color: #000;
+  background-color: #f3f3f3;
+  border: 1px solid #000;
+  grid-area: hh;
+  cursor: pointer;
+  border-radius: 15px;
+}
+.contentPage #grid2{
+  color: #000;
+  background-color: #f3f3f3;
+  border: 1px solid #000;
+  grid-area: hv;
+  cursor: pointer;
+  border-radius: 15px;
+}
+.contentPage #grid3{
+  color: #000;
+  background-color: #f3f3f3;
+  border: 1px solid #000;
+  grid-area: vh;
+  cursor: pointer;
+  border-radius: 15px;
+}
+.contentPage #grid4{
+  color: #000;
+  background-color: #f3f3f3;
+  border: 1px solid #000;
+  grid-area: vv;
+  cursor: pointer;
+  border-radius: 15px;
+}
+.contentPage #grid5{
+  color: #000;
+  background-color: #f3f3f3;
+  border: 1px solid #000;
+  grid-area: vn;
+  cursor: pointer;
+  border-radius: 15px;
+}
+.contentPage #grid6{
+  color: #000;
+  background-color: #f3f3f3;
+  border: 1px solid #000;
+  grid-area: nv;
+  cursor: pointer;
+  border-radius: 15px;
 }
 .web-skeleton .about{
   background-color: #fff;
