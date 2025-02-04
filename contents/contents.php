@@ -32,7 +32,7 @@ class contents{
       <div class="logout"> 
                 <p> <a href="./logout.php">log Out</a></p>
                 <i class="fas fa-user" id="loginbtn"></i>
-                <i class=" fas fa-solid fa-message"></i>
+                <a href="./message.php"><i class=" fas fa-solid fa-message"></i></a>
             </div>
     </ul>
     </div>

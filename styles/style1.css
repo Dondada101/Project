@@ -63,53 +63,80 @@
   grid-template-rows: auto;
   padding: 10px 10px 10px 10px;
 }
-.contentPage #grid1{
+.web-skeleton .contentPage #grid1{
   color: #000;
   background-color: #f3f3f3;
   border: 1px solid #000;
   grid-area: hh;
   cursor: pointer;
-  border-radius: 15px;
+  border-radius: 8px;
 }
-.contentPage #grid2{
+.web-skeleton .contentPage #grid2{
   color: #000;
   background-color: #f3f3f3;
   border: 1px solid #000;
   grid-area: hv;
   cursor: pointer;
-  border-radius: 15px;
+  border-radius: 8px;
 }
-.contentPage #grid3{
+.web-skeleton .contentPage #grid3{
   color: #000;
   background-color: #f3f3f3;
   border: 1px solid #000;
   grid-area: vh;
   cursor: pointer;
-  border-radius: 15px;
+  border-radius: 8px;
 }
-.contentPage #grid4{
+.web-skeleton .contentPage #grid4{
   color: #000;
   background-color: #f3f3f3;
   border: 1px solid #000;
   grid-area: vv;
   cursor: pointer;
-  border-radius: 15px;
+  border-radius: 8px;
 }
-.contentPage #grid5{
+.web-skeleton .contentPage #grid5{
   color: #000;
   background-color: #f3f3f3;
   border: 1px solid #000;
   grid-area: vn;
   cursor: pointer;
-  border-radius: 15px;
+  border-radius: 8px;
 }
-.contentPage #grid6{
+.web-skeleton .contentPage #grid6{
   color: #000;
   background-color: #f3f3f3;
   border: 1px solid #000;
   grid-area: nv;
   cursor: pointer;
-  border-radius: 15px;
+  border-radius: 8px;
+}
+.mcontainer{
+  height: 100vh;
+  display: grid;
+  grid-template-areas: 
+  "vv ff ff hh hh hh hh hh hh hh hh hh hh hh"
+  "vv ff ff pp pp pp pp pp pp pp pp pp pp pp"
+  "vv ff ff pp pp pp pp pp pp pp pp pp pp pp"
+  "vv ff ff pp pp pp pp pp pp pp pp pp pp pp"
+  ;
+  grid-template-rows: 50px ;
+}
+.mcontainer .nav{
+  grid-area: vv;
+  background-color: #776868;
+}
+.mcontainer .header{
+  grid-area: hh;
+  background-color: #444;
+} 
+.mcontainer .dName{
+  grid-area: ff;
+  background-color: #fff;
+}
+.mcontainer .textBox{
+  grid-area: pp;
+  background-color: aliceblue;
 }
 .web-skeleton .about{
   background-color: #fff;
