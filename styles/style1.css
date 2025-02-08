@@ -125,6 +125,19 @@
 .mcontainer .nav{
   grid-area: vv;
   background-color: #776868;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.mcontainer .nav a{
+  text-decoration: none;
+  color: #fff;
+  font-size: 15px;
+}
+.mcontainer .nav .area2{
+  display: flex;
+  flex-direction: column;
+  font-size: 15px #fff;
 }
 .mcontainer .header{
   grid-area: hh;
@@ -137,6 +150,18 @@
 .mcontainer .textBox{
   grid-area: pp;
   background-color: aliceblue;
+}
+.mcontainer .textBox .message input{
+  height: 50px;
+  width: 300px;
+  display: flex;
+  cursor: pointer;
+  padding: 10px 20px;
+  background-color: #fff;
+  border-radius: 6px;
+  align-items: center;
+  border: 1px #000 solid;
+  margin-top: 20px;
 }
 .web-skeleton .about{
   background-color: #fff;

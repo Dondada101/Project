@@ -1,5 +1,7 @@
 <?php
-class Logctrl extends Login{
+require "ignore.php";
+$myClassInstance=new Ignore();
+class Logctrl extends Login {
     private $email;
     private $pw;
     
@@ -15,24 +17,24 @@ class Logctrl extends Login{
     }
     
     public function login(){
-        
+        $myClassInstance=new Ignore();
         if($this->emptysu()==false){
             header("location: ../login.php?error=emptyfields");
             exit();
         }
         $this->getuser($this->email,$this->pw); 
-        $this->generateCode();
-        $this->sendMail($this->email);
+        $myClassInstance->generateCode();
+        $myClassInstance->sendMail($this->email);
     }
     public function fPassword(){
-        
+        $myClassInstance=new Ignore();
         if($this->emptyEmail()==false){
             header("location: ../login.php?error=emptyfields");
             exit();
         }
         $this->getEmail($this->email); 
-        $this->generateCode();
-        $this->sendMail($this->email);
+        $myClassInstance->generateCode();
+        $myClassInstance->sendMail($this->email);
     }
     public function updatePassword($newPassword) { 
         $hashedPassword = password_hash($newPassword, PASSWORD_DEFAULT); 
