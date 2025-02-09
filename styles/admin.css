@@ -72,3 +72,69 @@ color: #fff;
   grid-area: ff;
   background-color: #fff;
 }
+.container #content .navBar{
+  display: flex;
+  justify-content: space-between;
+  height: 55px;
+  background-color: rgb(212, 208, 208);
+  border-bottom: 2px black solid;
+  border-right: 2px black solid;
+}
+.container #content .navBar a{
+  text-decoration: none;
+  color: #000;
+}
+.container #content .navBar a:hover{
+  text-decoration: underline;
+}
+.container #content .navBar p{
+  padding: 20px 15px 10px 10px;
+}
+.container #content .form{
+  height: 500px;
+  margin: 0px 20px 20px 0px;
+}
+.container #content .form form {
+  height: 300px;
+}
+.container #content .form form input{
+  display:block;
+  width: 400px;
+  height: 40px;
+  margin:  10px 0px 30px 10px;
+}
+.container #content .form form select {
+  width: 200px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: #f9f9f9;
+  font-size: 14px;
+}
+.container #content .form form label{
+  margin: 10px;
+  font-size: 16px;
+}
+.container #content .form form select option {
+  padding: 20px;
+  background-color: #fff;
+  font-size: 16px;
+}
+.container #content .form form select option:checked{
+  background-color: #dcdcdc;
+  color: #000;
+}
+.container #content .form form select:hover{
+  background-color: #dcdcdc;
+  color: #000;
+}
+.container #content .form form button{
+  display: block;
+  color: #000;
+  background-color: rgb(151, 169, 151);
+  margin-left: 10px;
+  margin-top: 10px;
+  height: 55px;
+  width: 100px;
+  border-radius: 25px;
+}
