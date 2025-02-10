@@ -90,21 +90,21 @@ color: #fff;
 .container #content .navBar p{
   padding: 20px 15px 10px 10px;
 }
-.container #content .form{
+.container #content .formDoctor{
   height: 500px;
   margin: 0px 20px 20px 0px;
 }
-.container #content .form form {
+.container #content .formDoctor form {
   height: 300px;
 }
-.container #content .form form input{
+.container #content .formDoctor form input{
   display:block;
   width: 400px;
   height: 40px;
   margin:  10px 0px 30px 10px;
   color: #fff;
 }
-.container #content .form form select {
+.container #content .formDoctor form select {
   width: 200px;
   padding: 10px;
   border: 1px solid #ccc;
@@ -112,24 +112,91 @@ color: #fff;
   background-color: #f9f9f9;
   font-size: 14px;
 }
-.container #content .form form label{
+.container #content .formDoctor form label{
   margin: 10px;
   font-size: 16px;
 }
-.container #content .form form select option {
+.container #content .formDoctor form select option {
   padding: 20px;
   background-color: #fff;
   font-size: 16px;
 }
-.container #content .form form select option:checked{
+.container #content .formDoctor form select option:checked{
   background-color: #dcdcdc;
   color: #000;
 }
-.container #content .form form select:hover{
+.container #content .formDoctor form select:hover{
   background-color: #dcdcdc;
   color: #000;
 }
-.container #content .form form button{
+.container #content .formDoctor form button{
+  display: block;
+  color: #000;
+  background-color: rgb(151, 169, 151);
+  margin-left: 10px;
+  margin-top: 10px;
+  height: 55px;
+  width: 100px;
+  border-radius: 25px;
+}
+
+.hidden{
+  display: none;
+}
+.container #content .formSpecialization{
+  height: 500px;
+  margin: 0px 20px 20px 0px;
+}
+.container #content .formSpecialization form select {
+  width: 200px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: #f9f9f9;
+  font-size: 14px;
+}
+.container #content .formSpecialization form label{
+  margin: 10px;
+  font-size: 16px;
+}
+.container #content .formSpecialization form select option {
+  padding: 20px;
+  background-color: #fff;
+  font-size: 16px;
+}
+.container #content .formSpecialization form select option:checked{
+  background-color: #dcdcdc;
+  color: #000;
+}
+.container #content .formSpecialization form select:hover{
+  background-color: #dcdcdc;
+  color: #000;
+}
+.container #content .formSpecialization form button{
+  display: block;
+  color: #000;
+  background-color: rgb(151, 169, 151);
+  margin-left: 10px;
+  margin-top: 10px;
+  height: 55px;
+  width: 100px;
+  border-radius: 25px;
+}
+.container #content .formHospitals{
+  height: 500px;
+  margin: 0px 20px 20px 0px;
+}
+.container #content .formHospitals form {
+  height: 300px;
+}
+.container #content .formHospitals form input{
+  display:block;
+  width: 400px;
+  height: 40px;
+  margin:  10px 0px 30px 10px;
+  color: #fff;
+}
+.container #content .formHospitals form button{
   display: block;
   color: #000;
   background-color: rgb(151, 169, 151);

@@ -28,16 +28,43 @@
     </div>
     <div id="content">
       <div class="navBar">
-        <a href=""><p>Doctors</p></a>
+        <a href="" id="dLink"><p>Doctors</p></a>
         <a href=""><p>User</p></a>
+        <a href="" id="sLink"><p>Specialization</p></a>
         <a href=""><p>Appointments</p></a>
-        <a href=""><p>Hospitals</p></a>
+        <a href="" id="hLink"><p>Hospitals</p></a>
       </div>
-      <div class="form">
+      <div class="formDoctor" id="formDoctor">
       <h3>Doctor</h3>
       <form action="">
         <input type="text" name="dname" id="" placeholder="Enter doctor name">
         <input type="text" name="dname" id="" placeholder="Enter doctor Email">
+        <label for="specialization">Specialization:</label>
+        <select id="specialization" name="specialization" onchange="updateSubcategories()">
+        <option value="">Select a Specialization</option>
+            <option value="ophthalmologists">Ophthalmologists</option>
+            <option value="oncologists">Oncologists</option>
+            <option value="neurologists">Neurologists</option>
+            <option value="paediatricians">Paediatricians</option>
+        </select>
+        <label for="sub-specialization">Sub-specialization:</label>
+        <select id="sub-specialization" name="sub-specialization">
+        <option value="">Select a Sub-Specialization</option>
+        </select>
+        <button>Insert</button>
+      </form>
+      </div>
+      <div class="hidden formHospitals" id="formHospitals">
+      <h3>Hospital</h3>
+      <form action="">
+        <input type="text" name="dname" id="" placeholder="Hospital Name">
+        <input type="text" name="dname" id="" placeholder="Hospital Level">
+        <button>Insert</button>
+      </form>
+      </div>
+      <div class="hidden formSpecialization" id="formSpecialization">
+      <h3>Specialization</h3>
+      <form action="">
         <label for="specialization">Specialization:</label>
         <select id="specialization" name="specialization" onchange="updateSubcategories()">
         <option value="">Select a Specialization</option>

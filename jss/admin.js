@@ -1,3 +1,33 @@
+document.addEventListener('DOMContentLoaded', (event) =>{
+
+  const sLink=document.getElementById('sLink');
+  sLink.addEventListener('click',function(event){
+    event.preventDefault();
+    document.getElementById('formSpecialization').classList.remove('hidden');
+    document.getElementById('formDoctor').classList.add('hidden');
+    document.getElementById('formHospitals').classList.add('hidden');
+  })
+});
+document.addEventListener('DOMContentLoaded', (event) =>{
+
+  const dLink=document.getElementById('dLink');
+  dLink.addEventListener('click',function(event){
+    event.preventDefault();
+    document.getElementById('formSpecialization').classList.add('hidden');
+    document.getElementById('formDoctor').classList.remove('hidden');
+    document.getElementById('formHospitals').classList.add('hidden');
+  })
+});
+document.addEventListener('DOMContentLoaded', (event) =>{
+
+  const hLink=document.getElementById('hLink');
+  hLink.addEventListener('click',function(event){
+    event.preventDefault();
+    document.getElementById('formSpecialization').classList.add('hidden');
+    document.getElementById('formDoctor').classList.add('hidden');
+    document.getElementById('formHospitals').classList.remove('hidden');
+  })
+});
 const subcategories = {
   ophthalmologists: ['Glaucoma', 'Neuro-ophthalmology', 'Oculoplastics'],
   oncologists: ['Surgical', 'Medical ', 'Radial'],
