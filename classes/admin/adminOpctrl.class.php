@@ -1,4 +1,5 @@
 <?php
+require'../ignore.php';
 class AdminOpCtrl extends AdminOp{
   private $dname;
   private $demail;
@@ -16,11 +17,14 @@ class AdminOpCtrl extends AdminOp{
     }
   }
   public function addDoctorDetails(){
+    $sendPw=new Ignore();
     if($this->emptyEmail()==false){
       header("location: ../login.php?error=emptyfields");
       exit();
   }
+
   $this->insertDoctorDetails($this->dname,$this->demail,$this->dpw,$this->sname,$this->ssname);
+  $sendPw->sendDoctorPassword($this->demail,$this->dname,$this->dpw);
   }
   private function emptysu( ){
     $result=false;
