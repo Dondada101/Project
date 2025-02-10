@@ -1,3 +1,9 @@
+const subcategories = {
+  ophthalmologists: ['Glaucoma', 'Neuro-ophthalmology', 'Oculoplastics'],
+  oncologists: ['Surgical', 'Medical ', 'Radial'],
+  neurologists: ['Clinical', 'Vascular ', 'Child '],
+  paediatricians: ['Gastroenterology', 'Genetics ', 'Pulmonology ']
+};
 document.addEventListener('DOMContentLoaded', (event) =>{
 
   const sLink=document.getElementById('sLink');
@@ -28,13 +34,22 @@ document.addEventListener('DOMContentLoaded', (event) =>{
     document.getElementById('formHospitals').classList.remove('hidden');
   })
 });
-const subcategories = {
-  ophthalmologists: ['Glaucoma', 'Neuro-ophthalmology', 'Oculoplastics'],
-  oncologists: ['Surgical', 'Medical ', 'Radial'],
-  neurologists: ['Clinical', 'Vascular ', 'Child '],
-  paediatricians: ['Gastroenterology', 'Genetics ', 'Pulmonology ']
-};
+function dDetails(event){
+  event.preventDefault();
+  let dname=document.getElementById('dName').value;
+  let dEmail=document.getElementById('dEmail').value;
+  let dspecialization=document.getElementById('specialization').value;
+  let dsspecialization=document.getElementById('sub-specialization').value;
+  console.log(dname," ",dEmail," ",dspecialization," ",dsspecialization);
 
+  fetch('./includes/adminOp.php',{
+    method:'POST',
+    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+    body: new URLSearchParams({ dName: dname, dEmail: dEmail ,specialization: dspecialization,sspecialization:dsspecialization}) 
+  })
+  .then(res => res.text()) 
+  .catch(error => console.error('Error', error)); 
+}
 function updateSubcategories() {
   const mainCategory = document.getElementById('specialization').value;
   const subcategorySelect = document.getElementById('sub-specialization');

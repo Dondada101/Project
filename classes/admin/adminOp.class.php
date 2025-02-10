@@ -1,16 +1,19 @@
 <?php
 class AdminOp extends Conn{
-  private $dPassword;
-  private $sid;
-  private $ssid;
-
-  protected function generatePw(){
-      $this->dPassword =bin2hex(random_bytes(20 / 2));
-}
   protected function insertSpecialization($sname){
 
   }
-  protected function insertDoctorDetails($dPassword,$demail,$dname,$sid,$ssid){
-
+  protected function insertDoctorDetails($dPassword,$demail,$dname,$sname,$ssname){
+    $stmt=$this->connect()->prepare("INSERT INTO doctordetails(dname,demail,dpassword,dspecialization,dsspecialization) VALUES (:dname,:demail,:dpw,:dspec,:dsspec");
+    $stmt->bindParam(':dname',$dname);
+    $stmt->bindParam(':demail',$demail);
+    $stmt->bindParam(':dpw',$dPassword);
+    $stmt->bindParam(':dspec',$sname);
+    $stmt->bindParam(':dsspec',$ssname);
+    if($stmt->execute()){
+      echo "Doctor Details were inserted succesfully";
+    }else{
+      echo "Error: " . $stmt->errorInfo()[2];
+    }
   }
 }

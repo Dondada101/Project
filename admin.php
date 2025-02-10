@@ -36,9 +36,9 @@
       </div>
       <div class="formDoctor" id="formDoctor">
       <h3>Doctor</h3>
-      <form action="">
-        <input type="text" name="dname" id="" placeholder="Enter doctor name">
-        <input type="text" name="dname" id="" placeholder="Enter doctor Email">
+      <form onsubmit="dDetails(event)">
+        <input type="text" name="dname" id="dName" placeholder="Enter doctor name">
+        <input type="text" name="dname" id="dEmail" placeholder="Enter doctor Email">
         <label for="specialization">Specialization:</label>
         <select id="specialization" name="specialization" onchange="updateSubcategories()">
         <option value="">Select a Specialization</option>
@@ -51,7 +51,7 @@
         <select id="sub-specialization" name="sub-specialization">
         <option value="">Select a Sub-Specialization</option>
         </select>
-        <button>Insert</button>
+        <button type="submit">Insert</button>
       </form>
       </div>
       <div class="hidden formHospitals" id="formHospitals">
