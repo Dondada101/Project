@@ -1,4 +1,5 @@
 <?php
+require './classes/admin/conn.class.php';
 class AdminOp extends Conn{
   protected function insertSpecialization($sname){
 

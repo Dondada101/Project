@@ -38,7 +38,7 @@
       <h3>Doctor</h3>
       <form onsubmit="dDetails(event)">
         <input type="text" name="dname" id="dName" placeholder="Enter doctor name">
-        <input type="text" name="dname" id="dEmail" placeholder="Enter doctor Email">
+        <input type="email" name="dname" id="dEmail" placeholder="Enter doctor Email">
         <label for="specialization">Specialization:</label>
         <select id="specialization" name="specialization" onchange="updateSubcategories()">
         <option value="">Select a Specialization</option>

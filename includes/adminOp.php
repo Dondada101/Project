@@ -7,7 +7,7 @@ if($_SERVER['REQUEST_METHOD']==='POST'){
   $dPassword =bin2hex(random_bytes(20 / 2));
   require '../classes/admin/adminOp.class.php';
   require '../classes/admin/adminOpctrl.class.php';
-  require '../classes/conn.class.php';
+  require '../classes/admin/conn.class.php';
   $newDoctor=new AdminOpCtrl($dName,$dEmail,$dPassword,$specialization,$sspecialization);
   $newDoctor->addDoctorDetails();
 }
