@@ -3,7 +3,7 @@ class AdminOp extends Conn{
   protected function insertSpecialization($sname){
 
   }
-  protected function insertDoctorDetails($dPassword,$demail,$dname,$sname,$ssname){
+  protected function insertDoctorDetails($dname,$demail,$dPassword,$sname,$ssname){
     $stmt=$this->connect()->prepare("INSERT INTO doctordetails(dname,demail,dpassword,dspecialization,dsspecialization) VALUES (:dname,:demail,:dpw,:dspec,:dsspec");
     $stmt->bindParam(':dname',$dname);
     $stmt->bindParam(':demail',$demail);
