@@ -13,4 +13,15 @@ class AdminOp extends Conn {
       echo "Error: " . $stmt->errorInfo()[2];
     }
   }
+
+  protected function insertHospitalDetails($hname,$hlvl){
+    $stmt=$this->connect()->prepare("INSERT INTO hospitals(hname,hlvl) VALUES (:hname,:hlvl)");
+    $stmt->bindParam(':hname',$hname);
+    $stmt->bindParam(':hlvl',$hlvl);
+    if($stmt->execute()){
+      echo "Hospital Details were inserted succesfully";
+    }else{
+      echo "Error: " . $stmt->errorInfo()[2];
+    }
+  }
 }

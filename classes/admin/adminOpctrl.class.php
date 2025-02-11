@@ -6,7 +6,9 @@ class AdminOpCtrl extends AdminOp{
   private $dpw;
   private $sname;
   private $ssname;
-  public function __construct($dName=null,$dEmail=null,$dPassword=null,$specialization=null,$sspecialization=null)
+  private $hname;
+  private $hlvl;
+  public function __construct($dName=null,$dEmail=null,$dPassword=null,$specialization=null,$sspecialization=null,$hname=null,$hlvl=null)
   {
     if($dName!==null&&$dEmail!==null&&$dPassword!==null&&$specialization!==null&&$sspecialization!==null){
       $this->dname=$dName;
@@ -14,6 +16,10 @@ class AdminOpCtrl extends AdminOp{
       $this->dpw=$dPassword;
       $this->sname=$specialization;
       $this->ssname=$sspecialization;
+    }
+    if($hname!==null&& $hlvl!==null){
+      $this->hname=$hname;
+      $this->hlvl=$hlvl;
     }
   }
   public function addDoctorDetails(){
@@ -36,6 +42,9 @@ class AdminOpCtrl extends AdminOp{
     }
     return $result;
     
+}
+public function addHospitalDetails(){
+  $this->addHospitalDetails($this->hname,$this->hlvl);
 }
 private function emptyEmail( ){
     $result=false;
