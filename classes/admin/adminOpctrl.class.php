@@ -1,5 +1,5 @@
 <?php
-require'../ignore.php';
+require 'ignore.php';
 class AdminOpCtrl extends AdminOp{
   private $dname;
   private $demail;
