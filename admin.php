@@ -56,10 +56,10 @@
       </div>
       <div class="hidden formHospitals" id="formHospitals">
       <h3>Hospital</h3>
-      <form action="">
-        <input type="text" name="dname" id="" placeholder="Hospital Name">
-        <input type="text" name="dname" id="" placeholder="Hospital Level">
-        <button>Insert</button>
+      <form onsubmit="hDetails(event)">
+        <input type="text" name="hname" id="hname" placeholder="Hospital Name">
+        <input type="text" name="hlvl" id="hlvl" placeholder="Hospital Level">
+        <button type="submit">Insert</button>
       </form>
       </div>
       <div class="hidden formSpecialization" id="formSpecialization">

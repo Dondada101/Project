@@ -48,14 +48,14 @@ class contents{
       </thead>
        <tbody>  -->
         <!-- Results will be displayed here --> 
-       <!-- </tbody>
+       <!--  </tbody>
        </table> -->
-       <div id="grid1">Grid1</div>
-       <div id="grid2">Grid2</div>
+       <div id="grid1">Appoinments</div>
+       <div id="grid2">Services</div>
        <div id="grid3">Grid3</div>
        <div id="grid4">Grid4</div>
        <div id="grid5">Grid5</div>
-       <div id="grid6">Grid6</div>
+       <div id="grid6">Alert</div>
     </div>
     <?php 
   }

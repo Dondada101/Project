@@ -67,3 +67,19 @@ function updateSubcategories() {
       });
   }
 }
+
+//hospital details js function
+function hDetails(event){
+  event.preventDefault();
+  let hname=document.getElementById('hname').value;
+  let hlvl=document.getElementById('hlvl').value;
+  console.log(hname," ",hlvl," ");
+
+  fetch('./includes/adminOp.php',{
+    method:'POST',
+    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+    body: new URLSearchParams({ hname: hname, hlvl: hlvl ,action: 'add_hospital'}) 
+  })
+  .then(res => res.text()) 
+  .catch(error => console.error('Error', error)); 
+}
