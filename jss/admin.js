@@ -75,10 +75,10 @@ function hDetails(event){
   let hlvl=document.getElementById('hlvl').value;
   console.log(hname," ",hlvl," ");
 
-  fetch('./includes/adminOp.php',{
+  fetch('./includes/adminOp1.php',{
     method:'POST',
     headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-    body: new URLSearchParams({ hname: hname, hlvl: hlvl ,action: 'add_hospital'}) 
+    body: new URLSearchParams({ hname:hname, hlvl:hlvl }) 
   })
   .then(res => res.text()) 
   .catch(error => console.error('Error', error)); 

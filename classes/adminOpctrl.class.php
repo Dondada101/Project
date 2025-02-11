@@ -8,7 +8,7 @@ class AdminOpCtrl extends AdminOp{
   private $ssname;
   private $hname;
   private $hlvl;
-  public function __construct($dName=null,$dEmail=null,$dPassword=null,$specialization=null,$sspecialization=null,$hname=null,$hlvl=null)
+  public function __construct($hname=null,$hlvl=null,$dName=null,$dEmail=null,$dPassword=null,$specialization=null,$sspecialization=null)
   {
     if($dName!==null&&$dEmail!==null&&$dPassword!==null&&$specialization!==null&&$sspecialization!==null){
       $this->dname=$dName;
@@ -16,12 +16,14 @@ class AdminOpCtrl extends AdminOp{
       $this->dpw=$dPassword;
       $this->sname=$specialization;
       $this->ssname=$sspecialization;
-    }
-    if($hname!==null&& $hlvl!==null){
+    }else if($hname!==null&&$hlvl!==null){
       $this->hname=$hname;
       $this->hlvl=$hlvl;
     }
+    echo "hname in constructor: " . $this->hname . "<br>";
+   echo "hlvl in constructor: " . $this->hlvl . "<br>";
   }
+  
   public function addDoctorDetails(){
     $sendPw=new Ignore();
     if($this->emptyEmail()==false){
@@ -31,6 +33,9 @@ class AdminOpCtrl extends AdminOp{
 
   $this->insertDoctorDetails($this->dname,$this->demail,$this->dpw,$this->sname,$this->ssname);
   $sendPw->sendDoctorPassword($this->demail,$this->dname,$this->dpw);
+  }
+  public function addHospitalDetails(){
+    $this->insertHospitalDetails($this->hname,$this->hlvl);
   }
   private function emptysu( ){
     $result=false;
@@ -43,9 +48,7 @@ class AdminOpCtrl extends AdminOp{
     return $result;
     
 }
-public function addHospitalDetails(){
-  $this->addHospitalDetails($this->hname,$this->hlvl);
-}
+
 private function emptyEmail( ){
     $result=false;
     if(empty($this->demail)){
