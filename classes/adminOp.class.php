@@ -29,4 +29,14 @@ class AdminOp extends Conn {
     $stmt->execute();
     return $stmt->fetchAll(PDO::FETCH_ASSOC);
   }
+  protected function deleteHospital($hid){
+    $sql="DELETE * FROM hospitals WHERE hid=:hid";
+    $stmt=$this->connect()->prepare($sql);
+    $stmt->bindParam('hid',$hid);
+    if($stmt->execute()){
+      echo "Record deleted succesfully";
+    }else{
+      echo "Record not deleted an error occured";
+    }
+  }
 }

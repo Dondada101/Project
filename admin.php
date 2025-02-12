@@ -75,10 +75,10 @@ $data=$hospitals->getHospital();
         </tbody>
         <?php foreach($data AS $row): ?>
         <tr>  
-        <th class="id"> <?php echo $row['hid']; ?></th>    
+        <th data-value=" <?php echo $row['hid']; ?>"> <?php echo $row['hid']; ?></th>    
         <th> <?php echo $row['hname']; ?></th>
         <th><?php echo $row['hlvl']; ?></th>
-        <tH><button onclick="delHos()">Delete</button></tH>
+        <tH><button onclick="delHos(this)">Delete</button></tH>
         <th><button>Update</button></th>
         </tr>
         

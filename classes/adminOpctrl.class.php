@@ -8,20 +8,17 @@ class AdminOpCtrl extends AdminOp{
   private $ssname;
   private $hname;
   private $hlvl;
-  public function __construct($hname=null,$hlvl=null,$dName=null,$dEmail=null,$dPassword=null,$specialization=null,$sspecialization=null)
+  private $hid;
+  public function __construct($params)
   {
-    if($dName!==null&&$dEmail!==null&&$dPassword!==null&&$specialization!==null&&$sspecialization!==null){
-      $this->dname=$dName;
-      $this->demail=$dEmail;
-      $this->dpw=$dPassword;
-      $this->sname=$specialization;
-      $this->ssname=$sspecialization;
-    }else if($hname!==null&&$hlvl!==null){
-      $this->hname=$hname;
-      $this->hlvl=$hlvl;
-    }
-    echo "hname in constructor: " . $this->hname . "<br>";
-   echo "hlvl in constructor: " . $this->hlvl . "<br>";
+   $this->dname=$params['dname'];
+   $this->demail=$params['demail'];
+   $this->dpw=$params['dpw'];
+   $this->sname=$params['sname'];
+   $this->ssname=$params['ssname'];
+   $this->hname=$params['hname'];
+   $this->hlvl=$params['hlvl'];
+   $this->hid=$params['hid'];
   }
   
   public function addDoctorDetails(){
@@ -36,6 +33,9 @@ class AdminOpCtrl extends AdminOp{
   }
   public function addHospitalDetails(){
     $this->insertHospitalDetails($this->hname,$this->hlvl);
+  }
+  public function deleteHospitalDetails(){
+    $this->deleteHospital($this->hid);
   }
   private function emptysu( ){
     $result=false;
