@@ -78,8 +78,20 @@ function hDetails(event){
   fetch('./includes/adminOp1.php',{
     method:'POST',
     headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-    body: new URLSearchParams({ hname:hname, hlvl:hlvl }) 
+    body: new URLSearchParams({ hname:hname, hlvl:hlvl ,action:'insert' }) 
   })
   .then(res => res.text()) 
+  .catch(error => console.error('Error', error)); 
+}
+function delHos(button){
+  let tr = button.closest('tr');
+  let th = tr.querySelector('th[data-value]');
+  let hid = th.getAttribute('data-value');
+  console.log("Hospital id:" +hid);
+  fetch('./includes/adminOp1.php',{
+    method:'POST',
+    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+    body: new URLSearchParams({ hid:hid ,action:'delete'}) 
+  })
   .catch(error => console.error('Error', error)); 
 }

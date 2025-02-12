@@ -30,7 +30,7 @@ class AdminOp extends Conn {
     return $stmt->fetchAll(PDO::FETCH_ASSOC);
   }
   protected function deleteHospital($hid){
-    $sql="DELETE * FROM hospitals WHERE hid=:hid";
+    $sql="DELETE FROM hospitals WHERE hid=:hid";
     $stmt=$this->connect()->prepare($sql);
     $stmt->bindParam('hid',$hid);
     if($stmt->execute()){

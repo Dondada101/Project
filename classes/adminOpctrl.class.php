@@ -11,14 +11,14 @@ class AdminOpCtrl extends AdminOp{
   private $hid;
   public function __construct($params)
   {
-   $this->dname=$params['dname'];
-   $this->demail=$params['demail'];
-   $this->dpw=$params['dpw'];
-   $this->sname=$params['sname'];
-   $this->ssname=$params['ssname'];
-   $this->hname=$params['hname'];
-   $this->hlvl=$params['hlvl'];
-   $this->hid=$params['hid'];
+   $this->dname=isset($params['dname']) ? $params['dname']:null;
+   $this->demail=isset($params['demail']) ? $params['demail']:null;
+   $this->dpw=isset($params['dpw']) ? $params['dpw']:null;
+   $this->sname=isset($params['sname'])? $params['sname']:null;
+   $this->ssname=isset($params['ssname'])? $params['SSNAME']:null;
+   $this->hname=isset($params['hname']) ? $params['hname']:null;
+   $this->hlvl=isset($params['hlvl'])? $params['hlvl']:null;
+   $this->hid=isset($params['hid'])? $params['hid']:null;
   }
   
   public function addDoctorDetails(){

@@ -107,6 +107,5 @@ $data=$hospitals->getHospital();
     <div id="footer"></div>
   </div>
   <script src="jss/admin.js"></script>
-  <script src="jss/doctor.js"></script>
 </body>
 </html>
