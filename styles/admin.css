@@ -219,3 +219,49 @@ color: #fff;
   width: 100px;
   border-radius: 25px;
 }
+
+/* dindex.php style */
+.container #content .formRatiba form {
+  height: 300px;
+}
+.container #content .formRatiba form input{
+  width: 400px;
+  height: 40px;
+  margin:  10px 0px 30px 10px;
+  color: #000;
+}
+.container #content .formRatiba form select {
+  width: 200px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: #f9f9f9;
+  font-size: 14px;
+}
+.container #content .formRatiba form label{
+  margin: 10px;
+  font-size: 16px;
+}
+.container #content .formRatiba form select option {
+  padding: 20px;
+  background-color: #fff;
+  font-size: 16px;
+}
+.container #content .formRatiba form select option:checked{
+  background-color: #dcdcdc;
+  color: #000;
+}
+.container #content .formRatiba form select:hover{
+  background-color: #dcdcdc;
+  color: #000;
+}
+.container #content .formRatiba form button{
+  display: block;
+  color: #000;
+  background-color: rgb(151, 169, 151);
+  margin-left: 10px;
+  margin-top: 10px;
+  height: 55px;
+  width: 100px;
+  border-radius: 25px;
+}

@@ -24,4 +24,9 @@ class AdminOp extends Conn {
       echo "Error: " . $stmt->errorInfo()[2];
     }
   }
+  public function getHospital(){
+    $stmt=$this->connect()->prepare("SELECT * FROM hospitals");
+    $stmt->execute();
+    return $stmt->fetchAll(PDO::FETCH_ASSOC);
+  }
 }

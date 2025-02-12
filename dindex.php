@@ -1,3 +1,9 @@
+<?php
+require 'classes/conn.class.php';
+require 'classes/adminOp.class.php';
+$hospital = new AdminOp();
+$data = $hospital->getHospital();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -23,10 +29,16 @@
     <div id="content">
       <h2></h2>
      
-      <div class="insert">
+      <div class="formRatiba">
         <h3>My Ratiba</h3>
       <form action="">
-        <input type="text" id="id" hidden>
+        <input type="text" id="id" class="hidden">
+        <label for="hospital">Choose a hospital:</label>
+        <select id="hospital" name="hospital">
+            <?php foreach ($data as $row): ?>
+            <option value="<?php echo $row['hname']; ?>"><?php echo $row['hname']; ?></option>
+            <?php endforeach; ?>
+        </select>
         <select name="" id="">
           <option value="">Select Date</option>
           <option value="">h2</option>

@@ -1,3 +1,9 @@
+<?php
+require 'classes/conn.class.php';
+require 'classes/adminOp.class.php';
+$hospitals=new AdminOp();
+$data=$hospitals->getHospital();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -61,6 +67,23 @@
         <input type="text" name="hlvl" id="hlvl" placeholder="Hospital Level">
         <button type="submit">Insert</button>
       </form>
+      <table id="results" class="ht">
+       <thead> 
+        <tr> <th>Name</th> <th>Level</th> </tr> 
+      </thead>
+       <tbody> 
+        </tbody>
+        <?php foreach($data AS $row): ?>
+        <tr>  
+        <th class="id"> <?php echo $row['hid']; ?></th>    
+        <th> <?php echo $row['hname']; ?></th>
+        <th><?php echo $row['hlvl']; ?></th>
+        <tH><button onclick="delHos()">Delete</button></tH>
+        <th><button>Update</button></th>
+        </tr>
+        
+        <?php endforeach; ?>
+       </table> 
       </div>
       <div class="hidden formSpecialization" id="formSpecialization">
       <h3>Specialization</h3>
@@ -84,5 +107,6 @@
     <div id="footer"></div>
   </div>
   <script src="jss/admin.js"></script>
+  <script src="jss/doctor.js"></script>
 </body>
 </html>
