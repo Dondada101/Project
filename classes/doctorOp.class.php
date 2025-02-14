@@ -17,5 +17,27 @@ class DoctorOp extends Conn{
     echo "An error occured";
   }
   }
-
+  protected function getDocDetails($dname,$dpw){
+    $sql="SELECT dpassword FROM docotordetails WHERE dname=:dname";
+    $stmt=$this->connect()->prepare($sql);
+    $stmt->bindParam('dname',$dname);
+    if($stmt->execute()){
+      echo "Details were obtained";
+      $dpassword=$stmt->fetchAll(PDO::FETCH_ASSOC);
+      if($dpw===$dpassword[0]['dpassword']){
+        $sql2="SELECT * FROM doctordetails where dname=:dname AND dpassword=:dpw";
+        $stmt1=$this->connect()->prepare($sql2);
+        $stmt->bindParam('dname',$dname);
+        $stmt->bindParam('dpw',$dpw);
+        if($stmt->execute()){
+          echo "Log in was succesful";
+        }else{
+          echo "Log in was unsuccesfull";
+        }
+      }else {
+        echo "Password verification failed";
+      }
+    }
+    return $stmt->fetchAll(PDO::FETCH_ASSOC);
+  }
 }
