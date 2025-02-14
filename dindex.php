@@ -31,32 +31,27 @@ $data = $hospital->getHospital();
      
       <div class="formRatiba">
         <h3>My Ratiba</h3>
-      <form action="">
+      <form  onsubmit="addSchedule()">
         <input type="text" id="id" class="hidden">
         <label for="hospital">Choose a hospital:</label>
         <select id="hospital" name="hospital">
             <?php foreach ($data as $row): ?>
-            <option value="<?php echo $row['hname']; ?>"><?php echo $row['hname']; ?></option>
+            <option id="place" value="<?php echo $row['hname']; ?>"><?php echo $row['hname']; ?></option>
             <?php endforeach; ?>
         </select>
-        <select name="" id="">
-          <option value="">Select Date</option>
-          <option value="">h2</option>
-          <option value="">h3</option>
-          <option value="">h4</option>
-          <option value="">h5</option>
-        </select>
-        <select name="" id="">
-          <option value="" type="datetime-local">Start-time</option>
-        </select>
-        <select name="" id="">
-          <option value="" type="datetime-local">End-time</option>
-        </select>
-        <button>Add</button>
+        <label for="rDate">Select Date</label>
+        <input type="date" id="rDate">
+        <br>
+        <label for="sTime">Start</label>
+        <input type="time" id="sTime" >
+        <label for="eTime">End</label>
+        <input type="time" id="eTime" >
+        <button type="submit">Add</button>
         </form>
       </div>
     </div>
     <div id="footer"></div>
   </div>
+  <script src="jss/doctor.js"></script>
 </body>
 </html>
