@@ -25,11 +25,12 @@ class DoctorOp extends Conn{
       echo "Details were obtained";
       $dpassword=$stmt->fetchAll(PDO::FETCH_ASSOC);
       if($dpw===$dpassword[0]['dpassword']){
+        echo "Password verification was succesful";
         $sql2="SELECT * FROM doctordetails where dname=:dname AND dpassword=:dpw";
         $stmt1=$this->connect()->prepare($sql2);
-        $stmt->bindParam('dname',$dname);
-        $stmt->bindParam('dpw',$dpw);
-        if($stmt->execute()){
+        $stmt1->bindParam('dname',$dname);
+        $stmt1->bindParam('dpw',$dpw);
+        if($stmt1->execute()){
           echo "Log in was succesful";
         }else{
           echo "Log in was unsuccesfull";
