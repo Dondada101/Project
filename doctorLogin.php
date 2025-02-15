@@ -23,7 +23,7 @@
           </div>
           <form action="includes/doctor.php" method="post">
           <div class="imput-group mb-3">
-            <input type="text" class="form-control form-control-lg bg-light fs-6 "  name="uname" placeholder="User Name" >
+            <input type="text" class="form-control form-control-lg bg-light fs-6 "  name="dname" placeholder="User Name" >
           </div>
           <div class="imput-group mb-3">
             <input type="text" class="form-control form-control-lg bg-light fs-6 " placeholder="Password" name="password" >

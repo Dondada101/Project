@@ -3,6 +3,14 @@ require 'classes/conn.class.php';
 require 'classes/adminOp.class.php';
 $hospital = new AdminOp();
 $data = $hospital->getHospital();
+
+session_start();
+if(isset($_SESSION['userid'])){
+    $userid = $_SESSION['userid'];
+} else {
+    $userid = '';
+    echo "User ID is not set in the session.";
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -23,7 +31,7 @@ $data = $hospital->getHospital();
       </div>
       <div class="ratiba">
         <a href="">Insert </a>
-        <a href="">Read</a>
+        <a href="logout.php">log Out</a>
       </div>
     </div>
     <div id="content">
@@ -31,8 +39,8 @@ $data = $hospital->getHospital();
      
       <div class="formRatiba">
         <h3>My Ratiba</h3>
-      <form  onsubmit="addSchedule()">
-        <input type="text" id="id" class="hidden">
+      <form  onsubmit="addSchedule(event)">
+        <input type="text" id="did" class="hidden" value="<?php echo $userid?>">
         <label for="hospital">Choose a hospital:</label>
         <select id="hospital" name="hospital">
             <?php foreach ($data as $row): ?>
