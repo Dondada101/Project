@@ -17,11 +17,12 @@ class DoctorOpCtrl extends DoctorOp{
   $this->stime=isset($param['stime']) ? $param['stime']:null;
   $this->etime=isset($param['etime']) ? $param['etime']:null;
   $this->did=isset($param['did']) ? $param['did']:null;
+  echo $this->place.  $this->rdate.$this->stime. $this->etime.$this->did;
  }
  public function verifyDoctor(){
   $this->getDocDetails($this->dname,$this->dpw);
  }
  public function insertDocRatiba(){
-  $this->insertDocRatiba($this->did,$this->place,$this->rdate.$this->stime,$this->etime);
+  $this->insertRatiba($this->did,$this->place,$this->rdate,$this->stime,$this->etime);
  }
 }

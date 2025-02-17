@@ -14,6 +14,6 @@ function addSchedule(event){
     headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
     body: new URLSearchParams({ place:place, did:did ,sTime:sTime,eTime:eTime,rDate:rDate,action:'insert' }) 
   })
-  .them(res=>res.next())
+  .then(res=>res.text())
   .catch(error => console.error('Error', error)); 
 }

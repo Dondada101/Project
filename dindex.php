@@ -3,14 +3,8 @@ require 'classes/conn.class.php';
 require 'classes/adminOp.class.php';
 $hospital = new AdminOp();
 $data = $hospital->getHospital();
-
 session_start();
 if(isset($_SESSION['userid'])){
-    $userid = $_SESSION['userid'];
-} else {
-    $userid = '';
-    echo "User ID is not set in the session.";
-}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -40,7 +34,7 @@ if(isset($_SESSION['userid'])){
       <div class="formRatiba">
         <h3>My Ratiba</h3>
       <form  onsubmit="addSchedule(event)">
-        <input type="text" id="did" class="hidden" value="<?php echo $userid?>">
+        <input type="text" id="did" class="hidden" value="<?php echo $_SESSION['userid']?>">
         <label for="hospital">Choose a hospital:</label>
         <select id="hospital" name="hospital">
             <?php foreach ($data as $row): ?>
@@ -57,9 +51,36 @@ if(isset($_SESSION['userid'])){
         <button type="submit">Add</button>
         </form>
       </div>
+      <div class="htable" id="displayRatiba">
+      <table id="results" class="ht">
+       <thead> 
+        <tr> <th>Name</th> <th>Level</th> </tr> 
+      </thead>
+       <tbody> 
+        </tbody>
+        <?php foreach($data AS $row): ?>
+        <tr>  
+        <th data-value=" <?php echo $row['hid']; ?>"> <?php echo $row['hid']; ?></th>    
+        <th> <?php echo $row['hname']; ?></th>
+        <th><?php echo $row['hlvl']; ?></th>
+        <tH><button onclick="delHos(this)">Delete</button></tH>
+        <th><button>Update</button></th>
+        </tr>
+        
+        <?php endforeach; ?>
+       </table> 
+      </div>
     </div>
     <div id="footer"></div>
   </div>
   <script src="jss/doctor.js"></script>
 </body>
 </html>
+<?php
+}else{
+  echo "NOt logged in";
+  header('Location:doctorlogin.php');
+}
+?>
+
+

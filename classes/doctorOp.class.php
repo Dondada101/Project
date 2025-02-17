@@ -2,16 +2,15 @@
 
 class DoctorOp extends Conn{
   protected function insertRatiba($did,$hname,$rdate,$sTime,$eTime){
+    echo "Function has been reached";
     $sql1="SELECT hid FROM  hospitals WHERE hname=:hname";
     $stmt1=$this->connect()->prepare($sql1);
     $stmt1->bindParam('hname',$hname);
     if($stmt1->execute()){
       $hosDet=$stmt1->fetchAll(PDO::FETCH_ASSOC);
       $hid=$hosDet[0]['hid'];
-    }
-    
-
-    $sql="INSERT INTO ratiba(did,hid,rdate,s_time,e_time) 
+      echo $hid;
+      $sql="INSERT INTO ratiba(did,hid,rdate,s_time,e_time) 
                VALUES (:did,:hid,:rdate,:stime,:etime)";
   $stmt=$this->connect()->prepare($sql);
   $stmt->bindParam('did',$did);
@@ -25,8 +24,25 @@ class DoctorOp extends Conn{
   }else{
     echo "An error occured";
   }
+    }else {
+      echo "code didnot execute";
+    }
+    
+
+    
+  } 
+  public function getRatiba($did){
+    $sql="SELECT * FROM ratiba WHERE did=:did";
+    $stmt=$this->connect()->prepare($sql);
+    $stmt->bindParam('did',$did);
+    if($stmt->execute()){
+      echo "Details retrieved";
+    }else{
+      echo "Details were not retrieved";
+    }
+
   }
-  public function getDocDetails($dname,$dpw){
+  protected function getDocDetails($dname,$dpw){
     echo $dname." ".$dpw;
     $sql="SELECT dpassword FROM doctordetails WHERE dname=:dname";
     $stmt=$this->connect()->prepare($sql);
@@ -46,18 +62,18 @@ class DoctorOp extends Conn{
           session_start();
             $_SESSION["userid"]=$user[0]["did"];
             $stmt1=null;
-            exit();
+            return true;
         }else{
           echo "Log in was unsuccesfull";
-          exit();
+          return false;
         }
       }else {
         echo "Password verification failed";
-        exit();
+        return false;
       }
     }else{
       echo "Details were not obtained";
-      exit();
+      return false;
     }
        
   }

@@ -6,15 +6,18 @@ $dpw=htmlspecialchars($_POST['password'], ENT_QUOTES,'UTF-8');
 require '../classes/conn.class.php';
 require '../classes/doctorOp.class.php';
 require '../classes/doctorOPCtrl.class.php';
-
+echo "This block execution has began";
 $param=[
   'dName'=> $dname,
   'dpw'=>$dpw
 ];
 $doctor=new DoctorOpCtrl($param);
+echo "The block is here";
 $doctor->verifyDoctor();
+echo "Code reached here";
 header("location: ../dindex.php");
-}else if(isset($_POST['did']) && isset($_POST['place']) && isset($_POST['sTime']) && isset($_POST['eTime']) && isset($_POST['rDate']) && isset($_POST[' action']) && $_POST['action'] === 'insert'){
+exit();
+}else if(isset($_POST['did']) && isset($_POST['place']) && isset($_POST['sTime']) && isset($_POST['eTime']) && isset($_POST['rDate']) && isset($_POST['action']) && $_POST['action'] === 'insert'){
   $place=htmlspecialchars($_POST['place'],ENT_QUOTES,'UTF-8');
   $did=htmlspecialchars($_POST['did'],ENT_QUOTES,'UTF-8');
   $rDate=htmlspecialchars($_POST['rDate'],ENT_QUOTES,'UTF-8');
@@ -25,6 +28,7 @@ header("location: ../dindex.php");
   require '../classes/doctorOPCtrl.class.php';
 
   $didint=(int)$did;
+  echo $sTime.$eTime.$place.$rDate.$did;
   $param=[
     'stime'=> $sTime,
     'etime'=> $eTime,
