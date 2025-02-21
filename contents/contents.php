@@ -88,13 +88,14 @@ class contents{
         </th>
         <th data-value=" <?php echo $row['rid']; ?>" class="hidden"> <?php echo $row['rid']; ?></th> 
         <th class="hidden" data-value=" <?php echo $row['hid']; ?>"> <?php echo $row['hid']; ?></th> 
-        <th class="hidden" data-value=" <?php echo $row['did']; ?>"> <?php echo $row['did']; ?></th>    
+        <th class="hidden" data-value=" <?php echo $row['did']; ?>"> <?php echo $row['did']; ?></th>  
+        <th class="hidden" data-value=" <?php echo $row['demail']; ?>"> <?php echo $row['demail']; ?></th>     
         <th> <?php echo $row['hospital']; ?></th>
-        <th><?php echo $row['dname']; ?></th>
+        <th data-value="<?php echo $row['dname'];?>"><?php echo $row['dname']; ?></th>
         <th> <?php echo $row['specialization']; ?></th>
-        <th> <?php echo $row['adate']; ?></th>
-        <th><?php echo $row['astart']; ?></th>
-        <th> <?php echo $row['aend']; ?></th>
+        <th data-value="<?php echo $row['adate'];?>"> <?php echo $row['adate']; ?></th>
+        <th data-value=" <?php echo $row['astart']; ?>"><?php echo $row['astart']; ?></th>
+        <th data-value=" <?php echo $row['aend']; ?>"> <?php echo $row['aend']; ?></th>
         <th>
          <button onclick="initiateBooking(this)" id="book">Book</button>
         </th>
