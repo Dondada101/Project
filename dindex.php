@@ -1,10 +1,15 @@
 <?php
 require 'classes/conn.class.php';
 require 'classes/adminOp.class.php';
+require 'classes/doctorOp.class.php';
+require 'classes/doctorOPCtrl.class.php';
 $hospital = new AdminOp();
 $data = $hospital->getHospital();
 session_start();
-if(isset($_SESSION['userid'])){
+$userid=$_SESSION['userid'];
+$rDetails=new DoctorOp();
+$data1 = $rDetails->getRatiba($userid);
+if(isset($userid)){
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -14,6 +19,8 @@ if(isset($_SESSION['userid'])){
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Edu+AU+VIC+WA+NT+Arrows&family=Jaro:opsz@6..72&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles/admin.css">
+  <script src="https://kit.fontawesome.com/333c1941e5.js" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="crossorigin="anonymous"></script>
   <title>Doctor Module</title>
 </head>
 <body>
@@ -52,21 +59,43 @@ if(isset($_SESSION['userid'])){
         </form>
       </div>
       <div class="htable" id="displayRatiba">
+        <button class="refresh"><i class="fa-solid fa-arrows-rotate"></i></button>
       <table id="results" class="ht">
        <thead> 
-        <tr> <th>Name</th> <th>Level</th> </tr> 
+        <tr> <th>Name</th>
+         <th>Level</th>
+        <th>Level</th>
+        <th>Date</th>
+        <th>Start</th>
+        <th>End</th>
+        <th>Status</th>
+        </tr> 
       </thead>
        <tbody> 
         </tbody>
-        <?php foreach($data AS $row): ?>
+        <?php foreach($data1 AS $row): ?>
         <tr>  
-        <th data-value=" <?php echo $row['hid']; ?>"> <?php echo $row['hid']; ?></th>    
+        <th data-value=" <?php echo $row['rid']; ?>"> <?php echo $row['rid']; ?></th>    
         <th> <?php echo $row['hname']; ?></th>
         <th><?php echo $row['hlvl']; ?></th>
-        <tH><button onclick="delHos(this)">Delete</button></tH>
-        <th><button>Update</button></th>
-        </tr>
+        <th> <?php echo $row['rdate']; ?></th>
+        <th><?php echo $row['s_time']; ?></th>
+        <th> <?php echo $row['e_time']; ?></th>
+        <th>
+        <?php
+        if(isset($row['status1'])){
+          if($row['status1'] === false){
         
+            echo "Open";
+          }else if($row['status1'] === true){
+            echo "Booked";
+          }
+        }else{
+          echo "Not set";
+        }
+        ?>
+        </th>
+        </tr>
         <?php endforeach; ?>
        </table> 
       </div>
@@ -83,4 +112,8 @@ if(isset($_SESSION['userid'])){
 }
 ?>
 
-
+<!-- <td><?php echo $row['status']; ?></td>
+<?php echo $row['status1'] === false ? 'false' : ($row['status1'] === true ? 'true' : 'Not set'); ?>
+</td>
+<td><?php echo $row['status1'] === false ? 'false' : ($row['status1'] === true ? 'true' : 'Not set'); ?></td> -->
+//ternary operators

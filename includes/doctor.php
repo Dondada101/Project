@@ -38,6 +38,8 @@ exit();
   ];
   $insertRatiba=new DoctorOpCtrl($param);
   $insertRatiba->insertDocRatiba();
+}else if(isset($_POST['did'])){
+  
 }
 }
 ?>

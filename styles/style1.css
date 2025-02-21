@@ -70,6 +70,8 @@
   grid-area: hh;
   cursor: pointer;
   border-radius: 8px;
+  /* align-content: center; */
+  justify-content: center;
 }
 .web-skeleton .contentPage #grid2{
   color: #000;

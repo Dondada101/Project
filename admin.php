@@ -67,23 +67,25 @@ $data=$hospitals->getHospital();
         <input type="text" name="hlvl" id="hlvl" placeholder="Hospital Level">
         <button type="submit">Insert</button>
       </form>
+      <div class="htable">
       <table id="results" class="ht">
        <thead> 
-        <tr> <th>Name</th> <th>Level</th> </tr> 
+        <tr><th class="hidden">ID</th> <th>Name</th> <th>Level</th><th></th><th></th> </tr> 
       </thead>
        <tbody> 
         </tbody>
         <?php foreach($data AS $row): ?>
         <tr>  
-        <th data-value=" <?php echo $row['hid']; ?>"> <?php echo $row['hid']; ?></th>    
+        <th class="hidden" data-value=" <?php echo $row['hid']; ?>"> <?php echo $row['hid']; ?></th>    
         <th> <?php echo $row['hname']; ?></th>
         <th><?php echo $row['hlvl']; ?></th>
-        <tH><button onclick="delHos(this)">Delete</button></tH>
-        <th><button>Update</button></th>
+        <tH><button id="delete" onclick="delHos(this)">Delete</button></tH>
+        <th><button id="update">Update</button></th>
         </tr>
         
         <?php endforeach; ?>
        </table> 
+       </div>
       </div>
       <div class="hidden formSpecialization" id="formSpecialization">
       <h3>Specialization</h3>

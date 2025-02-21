@@ -8,7 +8,11 @@ if($_SERVER['REQUEST_METHOD']==='POST'){
     require '../classes/adminOp.class.php';
     require '../classes/adminOpctrl.class.php';
     echo "hname1".$hname;
-    $newHospital=new AdminOpCtrl($hname,$hlvl);
+    $params=[
+      'hname'=> $hname,
+      'hlvl'=>$hlvl
+    ];
+    $newHospital=new AdminOpCtrl($params);
     $newHospital->addHospitalDetails();
     echo "hname2".$hname;
   }else if (isset($_POST['hid']) && isset($_POST['action']) && $_POST['action']='delete'){

@@ -15,7 +15,7 @@ class AdminOpCtrl extends AdminOp{
    $this->demail=isset($params['demail']) ? $params['demail']:null;
    $this->dpw=isset($params['dpw']) ? $params['dpw']:null;
    $this->sname=isset($params['sname'])? $params['sname']:null;
-   $this->ssname=isset($params['ssname'])? $params['SSNAME']:null;
+   $this->ssname=isset($params['ssname'])? $params['ssname']:null;
    $this->hname=isset($params['hname']) ? $params['hname']:null;
    $this->hlvl=isset($params['hlvl'])? $params['hlvl']:null;
    $this->hid=isset($params['hid'])? $params['hid']:null;

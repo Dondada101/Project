@@ -4,7 +4,7 @@
   padding: 0;
 }
 .container{
-  min-height: 700px;
+  height: 100vh;
   display: grid;
   grid-template-areas: 
   "mm mm hh hh hh hh hh hh hh hh hh hh hh"
@@ -12,7 +12,7 @@
   "ff ff ff ff ff ff ff ff ff ff ff ff ff"
   ;
   grid-template-columns: repeat(12,75px);
-  grid-template-rows: 75px auto 50px;
+  grid-template-rows: 75px auto 35px;
 }
 .container #header{
   grid-area: hh;
@@ -263,5 +263,71 @@ color: #fff;
   margin-top: 10px;
   height: 55px;
   width: 100px;
-  border-radius: 25px;
+  border: none;
+  /* border-radius: 25px; */
+}
+#delete{
+  color: #000;
+  background-color: rgb(249, 65, 114);
+  margin-left: 10px;
+  margin-top: 10px;
+  height: 45px;
+  width: 100px;
+  border: none;
+}
+#update{
+  color: #000;
+  background-color: rgb(23, 217, 111);
+  margin-left: 10px;
+  margin-top: 10px;
+  height: 45px;
+  width: 100px;
+  border: none;
+}
+.refresh{
+  display: block;
+  color: #000;
+  background-color: rgb(38, 76, 109);
+  margin-left: 10px;
+  margin-top: 10px;
+  height: 55px;
+  width: 55px;
+  outline: none;
+  border: none;
+  /* border-radius: 25px; */
+}
+.refresh i{
+  font-weight: bolder;
+  font-size: 30px;
+}
+/* Table styyling */
+.htable .ht{
+  border-collapse: collapse;
+  margin: 25px 2rem;
+  font-size: .9em;
+  width: 800px;
+  min-width: 400px;
+  border-radius: 5px 5px 0 0;
+  overflow: hidden;
+  box-shadow: 0 0 20px rgba(0,0,0,.15);
+}
+.htable .ht thead tr{
+  background-color: cornflowerblue;
+  text-align: left;
+  font-weight: bold;
+}
+.htable .ht th,
+.htable .ht td{
+  padding: 12px 15px;
+
+}
+.htable .ht tbody tr{
+  border-bottom: 1px solid #444;
+  transition: transform 0.5s;
+}
+.htable .ht tbody tr:nth-of-type(even){
+  background-color: #f3f3f3;
+}
+.htable .ht tbody tr:last-of-type{
+  border-bottom: 2px solid cornflowerblue;
 }

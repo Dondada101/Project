@@ -25,7 +25,7 @@ class AdminOp extends Conn {
     }
   }
   public function getHospital(){
-    $stmt=$this->connect()->prepare("SELECT * FROM hospitals");
+    $stmt=$this->connect()->prepare("SELECT * FROM hospitals ");
     $stmt->execute();
     return $stmt->fetchAll(PDO::FETCH_ASSOC);
   }
@@ -38,5 +38,17 @@ class AdminOp extends Conn {
     }else{
       echo "Record not deleted an error occured";
     }
+  }
+  public function getFreeAppointments(){
+    $sql='SELECT  d.dname AS dname,d.dspecialitazion AS specialization,d.dsspecialitazion AS subspecializtion, h.hname AS hospital,h.hlvl AS hlevel, r.s_time AS astart,r.rdate AS adate,r.e_time AS aend FROM ratiba AS r 
+        INNER JOIN hospitals AS h ON(r.hid=h.hid),
+        INNER JOIN doctordetails AS s ON(r.did=d.did)';
+     $stmt=$this->connect()->prepare($sql);
+     if($stmt->execute()){
+      echo "Details retrieved";
+      return $stmt->fetchAll(PDO::FETCH_ASSOC);
+     }  else{
+      echo "Encounterd an error";
+     } 
   }
 }

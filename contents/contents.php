@@ -50,12 +50,17 @@ class contents{
         <!-- Results will be displayed here --> 
        <!--  </tbody>
        </table> -->
-       <div id="grid1">Appoinments</div>
+       <div class="grids">
+               <div id="grid1">Appoinments</div>
        <div id="grid2">Services</div>
        <div id="grid3">Grid3</div>
        <div id="grid4">Grid4</div>
        <div id="grid5">Grid5</div>
        <div id="grid6">Alert</div>
+       </div>
+       <div class="appointmentResult">
+        
+       </div>
     </div>
     <?php 
   }

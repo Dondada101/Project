@@ -32,11 +32,16 @@ class DoctorOp extends Conn{
     
   } 
   public function getRatiba($did){
-    $sql="SELECT * FROM ratiba WHERE did=:did";
+    $sql="SELECT r.rid AS rid, r.rdate AS rdate,r.s_time AS s_time, r.e_time AS e_time,r.status AS status1,
+          h.hname AS hname,h.hlvl AS hlvl  FROM ratiba AS r
+          INNER JOIN hospitals AS h ON(r.hid=h.hid)
+           WHERE did=:did";
     $stmt=$this->connect()->prepare($sql);
     $stmt->bindParam('did',$did);
     if($stmt->execute()){
-      echo "Details retrieved";
+     // echo "Details retrieved";
+    // var_dump($stmt->fetchAll(PDO::FETCH_ASSOC));
+      return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }else{
       echo "Details were not retrieved";
     }
