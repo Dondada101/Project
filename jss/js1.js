@@ -187,4 +187,10 @@ function initiateBooking(button){
     values[`value${index + 1}`] = dataValue; // Store values dynamically
   });
   console.log("Values:", values);
+  fetch('./includes/user.php', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ ...values})
+  })
+  .catch(error => console.error('Error:', error));
 }
