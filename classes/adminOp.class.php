@@ -40,9 +40,9 @@ class AdminOp extends Conn {
     }
   }
   public function getFreeAppointments(){
-    $sql='SELECT  d.dname AS dname,d.dspecialitazion AS specialization,d.dsspecialitazion AS subspecializtion, h.hname AS hospital,h.hlvl AS hlevel, r.s_time AS astart,r.rdate AS adate,r.e_time AS aend FROM ratiba AS r 
-        INNER JOIN hospitals AS h ON(r.hid=h.hid),
-        INNER JOIN doctordetails AS s ON(r.did=d.did),
+    $sql='SELECT  d.dname AS dname,d.dspecialization AS specialization,d.dsspecialziation AS subspecialization, h.hname AS hospital,h.hlvl AS hlevel, r.s_time AS astart,r.rdate AS adate,r.e_time AS aend ,r.rid AS rid FROM ratiba AS r 
+        INNER JOIN hospitals AS h ON(r.hid=h.hid)
+        INNER JOIN doctordetails AS d ON(r.did=d.did)
         WHERE r.status=false';
      $stmt=$this->connect()->prepare($sql);
      if($stmt->execute()){

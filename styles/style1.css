@@ -264,3 +264,7 @@
 .hidden{
   display: none;
 }
+span{
+  font-weight: bold;
+  font-size: 18px;
+}

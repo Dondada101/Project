@@ -15,7 +15,7 @@ class layout{
         <link rel="stylesheet" href="./styles/style1.css">
         <script src="https://kit.fontawesome.com/333c1941e5.js" crossorigin="anonymous"></script>
         <script src="https://code.jquery.com/jquery-3.7.1.min.js"integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="crossorigin="anonymous"></script>
-        <script> 
+        <!-- <script> 
         $(document).ready(function() {
            $("#search1").keyup(function() {
              var search = $(this).val(); 
@@ -38,7 +38,7 @@ class layout{
                   $("#results thead").html("<tr><th colspan='2'>Type something to search for hospitals...</th></tr>");
                 }
               );
-           </script>
+           </script> -->
       </head>
       <body>
         <div class="web-skeleton">

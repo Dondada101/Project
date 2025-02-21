@@ -1,6 +1,8 @@
 <?php
 require 'classes/conn.class.php';
-require 'adminOp.class.php';
+require 'classes/adminOp.class.php';
+require 'classes/doctorOp.class.php';
+require 'classes/doctorOPCtrl.class.php';
 class contents{
   public function navBar(){
     ?>
@@ -64,12 +66,13 @@ class contents{
        </div>
        <div id="appointmentResult" class="hidden">
        <div class="htable" id="displayRatiba">
-        <button class="refresh"><i class="fa-solid fa-arrows-rotate"></i></button>
       <table id="results" class="ht">
        <thead> 
-        <tr> <th>Name</th>
-         <th>Level</th>
-        <th>Level</th>
+        <tr> 
+          <th></th>
+        <th>Location</th>
+        <th>Doctor</th>
+        <th>Specialization</th>
         <th>Date</th>
         <th>Start</th>
         <th>End</th>
@@ -80,29 +83,31 @@ class contents{
         </tbody>
         <?php foreach($data1 AS $row): ?>
         <tr>  
-        <th data-value=" <?php echo $row['rid']; ?>"> <?php echo $row['rid']; ?></th>    
-        <th> <?php echo $row['hname']; ?></th>
-        <th><?php echo $row['hlvl']; ?></th>
-        <th> <?php echo $row['rdate']; ?></th>
-        <th><?php echo $row['s_time']; ?></th>
-        <th> <?php echo $row['e_time']; ?></th>
         <th>
-        <?php
-        if(isset($row['status1'])){
-          if($row['status1'] === false){
-        
-            echo "Open";
-          }else if($row['status1'] === true){
-            echo "Booked";
-          }
-        }else{
-          echo "Not set";
-        }
-        ?>
+              <button type="button" class="toggle-details"><i class="fa-solid fa-angle-down"></i></button>
+        </th>
+        <th data-value=" <?php echo $row['rid']; ?>" class="hidden"> <?php echo $row['rid']; ?></th>    
+        <th> <?php echo $row['hospital']; ?></th>
+        <th><?php echo $row['dname']; ?></th>
+        <th> <?php echo $row['specialization']; ?></th>
+        <th> <?php echo $row['adate']; ?></th>
+        <th><?php echo $row['astart']; ?></th>
+        <th> <?php echo $row['aend']; ?></th>
+        <th>
+         <button onsubmit="">Book</button>
         </th>
         </tr>
+        <tr class="details hidden">
+            <td colspan="8">
+              <div>
+                <p><span>Sub-specialization:</span>  <?php echo $row['subspecialization']; ?></p>
+                <p><span>Hospital Level:</span>  <?php echo $row['hlevel']; ?></p>
+              </div>
+            </td>
+          </tr>
         <?php endforeach; ?>
        </table> 
+       
       </div>
        </div>
     </div>

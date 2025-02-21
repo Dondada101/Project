@@ -25,7 +25,14 @@ document.addEventListener('DOMContentLoaded', (event) => {
     console.error('Link element not found');
   }
 });
-
+document.addEventListener('DOMContentLoaded', (event) => {
+  document.querySelectorAll('.toggle-details').forEach(button => {
+    button.addEventListener('click', () => {
+      const detailsRow = button.closest('tr').nextElementSibling;
+      detailsRow.classList.toggle('hidden');
+    });
+  });
+});
 
 function submitCode(){
   let vCode=document.querySelectorAll('.verify')
