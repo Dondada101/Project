@@ -1,6 +1,6 @@
 function addSchedule(event){
   event.preventDefault();
-  let place=document.getElementById('place').value;
+  let place=document.getElementById('hospital').value;
   let did=document.getElementById('did').value;
   let sTime=document.getElementById('sTime').value;
   let eTime=document.getElementById('eTime').value;

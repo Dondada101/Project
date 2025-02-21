@@ -5,6 +5,7 @@ require 'classes/doctorOp.class.php';
 require 'classes/doctorOPCtrl.class.php';
 $hospital = new AdminOp();
 $data = $hospital->getHospital();
+// var_dump($data);
 session_start();
 $userid=$_SESSION['userid'];
 $rDetails=new DoctorOp();
@@ -44,9 +45,12 @@ if(isset($userid)){
         <input type="text" id="did" class="hidden" value="<?php echo $_SESSION['userid']?>">
         <label for="hospital">Choose a hospital:</label>
         <select id="hospital" name="hospital">
-            <?php foreach ($data as $row): ?>
-            <option id="place" value="<?php echo $row['hname']; ?>"><?php echo $row['hname']; ?></option>
-            <?php endforeach; ?>
+        <?php foreach ($data as $row): ?>
+        <option id="place" value="<?php echo htmlspecialchars($row['hname']); ?>">
+            <?php echo htmlspecialchars($row['hname']); ?>
+        </option>
+        <?php echo "<!-- value='" . htmlspecialchars($row['hname']) . "' -->"; ?>
+    <?php endforeach; ?>
         </select>
         <label for="rDate">Select Date</label>
         <input type="date" id="rDate">
@@ -116,4 +120,4 @@ if(isset($userid)){
 <?php echo $row['status1'] === false ? 'false' : ($row['status1'] === true ? 'true' : 'Not set'); ?>
 </td>
 <td><?php echo $row['status1'] === false ? 'false' : ($row['status1'] === true ? 'true' : 'Not set'); ?></td> -->
-//ternary operators
+<!-- ternary operators -->

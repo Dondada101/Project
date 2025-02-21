@@ -54,6 +54,7 @@
 .web-skeleton .contentPage {
   background-color:aliceblue;
   grid-area: mn;
+  overflow: auto; /* Add a scrollbar if content overflows */
 }
 .web-skeleton .contentPage #grids{
   display: grid;
@@ -267,4 +268,22 @@
 span{
   font-weight: bold;
   font-size: 18px;
+}
+#book{
+  display: block;
+  color: #000;
+  background-color: rgb(38, 76, 109);
+  margin-left: 10px;
+  margin-top: 10px;
+  height: 55px;
+  width: 100px;
+  border: none;
+  /* border-radius: 25px; */
+}
+#ddown{
+  outline: none;
+  border: none;
+}
+#ddown i{
+  font-weight: bold;
 }

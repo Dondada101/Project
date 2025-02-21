@@ -25,6 +25,20 @@ document.addEventListener('DOMContentLoaded', (event) => {
     console.error('Link element not found');
   }
 });
+// document.addEventListener('DOMContentLoaded', (event) => {
+//   const inputs = document.querySelectorAll('.verify');
+
+//   inputs.forEach((input, index) => {
+//     input.addEventListener('input', () => {
+//       if (input.value.length === input.maxLength) {
+//         const nextInput = inputs[index + 1];
+//         if (nextInput) {
+//           nextInput.focus();
+//         }
+//       }
+//     });
+//   });
+// });
 document.addEventListener('DOMContentLoaded', (event) => {
   document.querySelectorAll('.toggle-details').forEach(button => {
     button.addEventListener('click', () => {
@@ -162,4 +176,15 @@ function submitForm(event){
           alert('Passwords do not match'); 
         } 
       }
+}
+
+function initiateBooking(button){
+  let tr = button.closest('tr');
+  let thElements = tr.querySelectorAll('th[data-value]');
+  let values = {};
+  thElements.forEach((th, index) => {
+    let dataValue = th.getAttribute('data-value');
+    values[`value${index + 1}`] = dataValue; // Store values dynamically
+  });
+  console.log("Values:", values);
 }

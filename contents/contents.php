@@ -21,7 +21,7 @@ class contents{
     
     
     <form action="" method="POST">
-    <div id="search" class="box"><input id="search1" type="text" placeholder="Search Here" name="search">
+    <div id="search" class="box hidden"><input id="search1" type="text" placeholder="Search Here" name="search">
     <a href="">
     <i class="fas fa-search" id="searchbtn"></i>
     </a>
@@ -84,9 +84,11 @@ class contents{
         <?php foreach($data1 AS $row): ?>
         <tr>  
         <th>
-              <button type="button" class="toggle-details"><i class="fa-solid fa-angle-down"></i></button>
+              <button type="button" class="toggle-details" id="ddown"><i class="fa-solid fa-angle-down"></i></button>
         </th>
-        <th data-value=" <?php echo $row['rid']; ?>" class="hidden"> <?php echo $row['rid']; ?></th>    
+        <th data-value=" <?php echo $row['rid']; ?>" class="hidden"> <?php echo $row['rid']; ?></th> 
+        <th class="hidden" data-value=" <?php echo $row['hid']; ?>"> <?php echo $row['hid']; ?></th> 
+        <th class="hidden" data-value=" <?php echo $row['did']; ?>"> <?php echo $row['did']; ?></th>    
         <th> <?php echo $row['hospital']; ?></th>
         <th><?php echo $row['dname']; ?></th>
         <th> <?php echo $row['specialization']; ?></th>
@@ -94,7 +96,7 @@ class contents{
         <th><?php echo $row['astart']; ?></th>
         <th> <?php echo $row['aend']; ?></th>
         <th>
-         <button onsubmit="">Book</button>
+         <button onclick="initiateBooking(this)" id="book">Book</button>
         </th>
         </tr>
         <tr class="details hidden">
