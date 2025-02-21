@@ -46,6 +46,7 @@ class layout{
     }
     public function footer(){
       ?>
+       <script src="./jss/js1.js"></script>
       </div>
       </body>
      </html>

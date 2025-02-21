@@ -1,3 +1,32 @@
+document.addEventListener('DOMContentLoaded', (event) => {
+  console.log('DOM fully loaded and parsed');
+  
+  const dLink = document.getElementById('grd1link');
+  console.log('dLink:', dLink);
+  
+  if (dLink) {
+    dLink.addEventListener('click', function(event) {
+      event.preventDefault();
+      const grids = document.getElementById('grids');
+      const appointmentResult = document.getElementById('appointmentResult');
+      
+      console.log('grids:', grids);
+      console.log('appointmentResult:', appointmentResult);
+
+      if (grids && appointmentResult) {
+        // Use inline styling to hide grids and show appointmentResult
+        grids.style.display = 'none';
+        appointmentResult.style.display = 'block';
+      } else {
+        console.error('grids or appointmentResult element not found');
+      }
+    });
+  } else {
+    console.error('Link element not found');
+  }
+});
+
+
 function submitCode(){
   let vCode=document.querySelectorAll('.verify')
   let iCode='';

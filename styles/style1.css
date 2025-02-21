@@ -51,9 +51,11 @@
   cursor: pointer;
   padding: 8px 5px 4px 5px;
 }
-.web-skeleton .contentPage{
+.web-skeleton .contentPage {
   background-color:aliceblue;
   grid-area: mn;
+}
+.web-skeleton .contentPage #grids{
   display: grid;
   grid-template-areas: 
   "hh hv vh"
@@ -62,8 +64,9 @@
   grid-gap: 8px;
   grid-template-rows: auto;
   padding: 10px 10px 10px 10px;
+  height: 100%;
 }
-.web-skeleton .contentPage #grid1{
+.web-skeleton .contentPage #grids #grid1{
   color: #000;
   background-color: #f3f3f3;
   border: 1px solid #000;
@@ -73,7 +76,7 @@
   /* align-content: center; */
   justify-content: center;
 }
-.web-skeleton .contentPage #grid2{
+.web-skeleton .contentPage #grids #grid2{
   color: #000;
   background-color: #f3f3f3;
   border: 1px solid #000;
@@ -81,7 +84,7 @@
   cursor: pointer;
   border-radius: 8px;
 }
-.web-skeleton .contentPage #grid3{
+.web-skeleton .contentPage #grids #grid3{
   color: #000;
   background-color: #f3f3f3;
   border: 1px solid #000;
@@ -89,7 +92,7 @@
   cursor: pointer;
   border-radius: 8px;
 }
-.web-skeleton .contentPage #grid4{
+.web-skeleton .contentPage #grids #grid4{
   color: #000;
   background-color: #f3f3f3;
   border: 1px solid #000;
@@ -97,7 +100,7 @@
   cursor: pointer;
   border-radius: 8px;
 }
-.web-skeleton .contentPage #grid5{
+.web-skeleton .contentPage #grids #grid5{
   color: #000;
   background-color: #f3f3f3;
   border: 1px solid #000;
@@ -105,7 +108,7 @@
   cursor: pointer;
   border-radius: 8px;
 }
-.web-skeleton .contentPage #grid6{
+.web-skeleton .contentPage #grids #grid6{
   color: #000;
   background-color: #f3f3f3;
   border: 1px solid #000;
@@ -257,4 +260,7 @@
 }
 .htable .ht tbody tr:last-of-type{
   border-bottom: 2px solid cornflowerblue;
+}
+.hidden{
+  display: none;
 }
