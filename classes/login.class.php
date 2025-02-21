@@ -13,7 +13,7 @@ class Login extends Conn {
         $_SESSION['verification_code'] = $this->vCode;
        // echo "Generated code: {$this->vCode}<br>";
  }
-    protected function getuser($email,$pw){
+    public function getuser($email,$pw){
         $stmt = $this->connect()->prepare("SELECT upassword FROM users WHERE email=?;");
         
         if(!$stmt->execute(array($email))){
@@ -50,9 +50,9 @@ class Login extends Conn {
             }
             $user=$stmt->fetchAll(PDO::FETCH_ASSOC);
             
-            // session_start();
-            // $_SESSION["userid"]=$user[0]["id"];
-            // $_SESSION['un']=$user[0]['uname'];
+            session_start();
+            $_SESSION["uid"]=$user[0]["id"];
+            $_SESSION['un']=$user[0]['uname'];
             $stmt=null;
            }
         

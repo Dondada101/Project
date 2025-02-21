@@ -1,5 +1,5 @@
 <?php
-class AppointmentCtrl extends Appointment{
+class Appointment extends Conn{
   protected function updateStatus($did,$hid,$rid,$uid){
     $sql='SELECT * FROM ratiba WHERE rid=:rid';
     $stmt=$this->connect()->prepare($sql);
@@ -13,10 +13,11 @@ class AppointmentCtrl extends Appointment{
         $stmt1->bindParam('rid',$rid);
         if($stmt1->execute()){
           echo "Update was succesfull";
-          $sql2='INSERT INTO appointments(did,userid) VALUES (:did,:userid)';
+          $sql2='INSERT INTO appointments(did,userid,hid) VALUES (:did,:userid,:hid)';
           $stmt2=$this->connect()->prepare($sql2);
           $stmt2->bindParam('did',$did);
           $stmt2->bindParam('userid',$uid);
+          $stmt2->bindParam('hid',$hid);
           if($stmt2->execute()){
             echo "records inserted succesfully";
           }else{
@@ -29,7 +30,7 @@ class AppointmentCtrl extends Appointment{
         echo "status is already set to true";
       }
     }else{
-      echo "Statement failed to execute"
+      echo "Statement failed to execute";
     }
   }
 }

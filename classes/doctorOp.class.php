@@ -32,7 +32,7 @@ class DoctorOp extends Conn{
     
   } 
   public function getRatiba($did){
-    $sql="SELECT r.rid AS rid, r.rdate AS rdate,r.s_time AS s_time, r.e_time AS e_time,r.status AS status1,
+    $sql="SELECT r.rid AS rid, r.rdate AS rdate,r.s_time AS s_time, r.e_time AS e_time,r.astatus AS status1,
           h.hname AS hname,h.hlvl AS hlvl  FROM ratiba AS r
           INNER JOIN hospitals AS h ON(r.hid=h.hid)
            WHERE did=:did";

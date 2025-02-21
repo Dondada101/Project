@@ -46,8 +46,10 @@ class contents{
   public function contentPage(){
     $ap=new AdminOp();
     $data1=$ap->getFreeAppointments();
+    print_r($_SESSION);
     ?> 
     <div class="contentPage htable">
+    <?php echo $_SESSION['un']?>
     <!-- <table id="results" class="ht">
        <thead> 
         <tr> <th>Name</th> <th>Level</th> </tr> 
@@ -96,6 +98,9 @@ class contents{
         <th data-value="<?php echo $row['adate'];?>"> <?php echo $row['adate']; ?></th>
         <th data-value=" <?php echo $row['astart']; ?>"><?php echo $row['astart']; ?></th>
         <th data-value=" <?php echo $row['aend']; ?>"> <?php echo $row['aend']; ?></th>
+        <th class="hidden" data-value=" <?php echo $row['hospital']; ?>"> <?php echo $row['hospital']; ?></th> 
+        <th class="hidden" data-value=" <?php echo $_SESSION['uid']?>"><?php echo $_SESSION['uid']?></th> 
+        <th class="hidden" data-value=" <?php echo $_SESSION['un']?>"> <?php echo $_SESSION['un']?></th> 
         <th>
          <button onclick="initiateBooking(this)" id="book">Book</button>
         </th>
