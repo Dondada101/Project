@@ -18,7 +18,7 @@ class AppointmentCtrl extends Appointment{
     $this->uid=isset($param['uid']) ? $param['uid'] : null;
     $this->rid=isset($param['rid']) ? $param['rid'] : null;
     $this->hid=isset($param['hid']) ? $param['hid'] : null;
-    $this->dname=isset($pram['dname']) ? $param['dname'] : null;
+    $this->dname=isset($param['dname']) ? $param['dname'] : null;
     $this->demail=isset($param['demail']) ? $param['demail'] : null;
     $this->adate=isset($param['adate']) ? $param['adate'] : null;
     $this->astart=isset($param['astart']) ? $param['astart'] : null;

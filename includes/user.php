@@ -41,6 +41,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     'aend'=>$aend,
     'uname'=>$uname
    ];
+   $newAppointment=new AppointmentCtrl($param);
+   $newAppointment->makeAppointment();
   // Example: Just log the values for debugging
   error_log("RID: $rid, HID: $hid, DID: $did");
 
