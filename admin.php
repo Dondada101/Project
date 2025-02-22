@@ -34,16 +34,19 @@ $data=$hospitals->getHospital();
         <p><a href="">Analytics</a></p>
         <p><a href="">Report</a></p>
       </div> -->
+      <p><a href="" id="homeLink">Home</a></p>
       <p><a href="" id="aLink">Analytics</a></p>
+      
     </div>
     <div id="content">
-      <div class="navBar">
+      <div class="navBar" id="navBar">
         <a href="" id="dLink"><p>Doctors</p></a>
         <a href=""><p>User</p></a>
         <a href="" id="sLink"><p>Specialization</p></a>
         <a href=""><p>Appointments</p></a>
         <a href="" id="hLink"><p>Hospitals</p></a>
       </div>
+      
       <div class="formDoctor" id="formDoctor">
       <h3>Doctor</h3>
       <form onsubmit="dDetails(event)">
@@ -109,9 +112,27 @@ $data=$hospitals->getHospital();
         <button>Insert</button>
       </form>
       </div>
+      <div class="mychart hidden" id="mc">
+    <div class="chartTypes">
+      <p>Doctors</p>
+    <button onclick="setChartType('doughnut')" class="mcbtn">Pie Chart</button>
+    <button onclick="setChartType('bar')" class="mcbtn">Bar</button>
+    </div>
+  <canvas id="myChart"></canvas>
+  </div>
+  <div class="mychartt hidden" id="mc1">
+    <div class="chartTypes">
+    <p>Hospital</p>
+  <button onclick="setChartType1('doughnut')" class="mcbtn">Pie Chart</button>
+  <button onclick="setChartType1('bar')" class="mcbtn">Bar</button>
+    </div>
+  <canvas id="myChart1"></canvas>
+  </div>
     </div>
     <div id="footer"></div>
   </div>
   <script src="jss/admin.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="jss/analytic.js"></script>
 </body>
 </html>

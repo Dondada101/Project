@@ -16,6 +16,28 @@ document.addEventListener('DOMContentLoaded', (event) =>{
 });
 document.addEventListener('DOMContentLoaded', (event) =>{
 
+  const sLink=document.getElementById('aLink');
+  sLink.addEventListener('click',function(event){
+    event.preventDefault();
+    document.getElementById('mc').classList.remove('hidden');
+    document.getElementById('mc1').classList.remove('hidden');
+    document.getElementById('formDoctor').classList.add('hidden');
+    document.getElementById('navBar').style.display='none';
+  })
+});
+document.addEventListener('DOMContentLoaded', (event) =>{
+
+  const sLink=document.getElementById('homeLink');
+  sLink.addEventListener('click',function(event){
+    event.preventDefault();
+    document.getElementById('mc').classList.add('hidden');
+    document.getElementById('mc1').classList.add('hidden');
+    document.getElementById('formDoctor').classList.remove('hidden');
+    document.getElementById('navBar').style.display='flex';
+  })
+});
+document.addEventListener('DOMContentLoaded', (event) =>{
+
   const dLink=document.getElementById('dLink');
   dLink.addEventListener('click',function(event){
     event.preventDefault();
@@ -24,6 +46,7 @@ document.addEventListener('DOMContentLoaded', (event) =>{
     document.getElementById('formHospitals').classList.add('hidden');
   })
 });
+
 document.addEventListener('DOMContentLoaded', (event) =>{
 
   const hLink=document.getElementById('hLink');

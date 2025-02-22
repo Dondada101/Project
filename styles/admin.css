@@ -332,3 +332,48 @@ color: #fff;
 .htable .ht tbody tr:last-of-type{
   border-bottom: 2px solid cornflowerblue;
 }
+/* Chart Style */
+.mychart{
+  height: 50%;
+  width: 50%;
+  margin: 15px 25px 80px 50px;
+}
+.mychartt{
+  height: 50%;
+  width: 50%;
+  margin: 15px 25px 80px 50px;
+}
+.mychart #myChart{
+  background-color:transparent;
+  font-weight: bold;
+}
+.mychart #myChart1{
+  background-color: transparent;
+}
+.chartTypes{
+  display: flex;
+  flex-direction: row;
+}
+.chartTypes .mcbtn {
+  /* display: block; */
+  color: #000;
+  background-color: rgb(38, 76, 109);
+  margin-left: 10px;
+  margin-top: 10px;
+  height: 35px;
+  width: 70px;
+  border: none;
+}
+.chartTypes p{
+  margin-top: 14px;
+  font-weight: bold;
+
+}
+#navbar p a{
+  text-decoration: none;
+  font-size: 15px;
+  color: #fff;
+}
+#navbar p{
+  padding-bottom: 10px;
+}

@@ -16,7 +16,7 @@ fetch('json/data.json')
           jsonData = data.data1;
           jsonData1 = data.data2;
           createChartData1(jsonData, 'bar');
-          createChartData2(jsonData1, 'line');
+          createChartData2(jsonData1, 'doughnut');
         })
         .catch(error => console.error('Error fetching data:', error));
 
@@ -47,7 +47,7 @@ const borderColors = data.map((_, index) => {
         label: 'Number of request',
         data: dreqcount,
         borderWidth: 1,
-        backgroundColor:'rgb(212, 208, 208)'
+        backgroundColor:'rgb(11, 40, 65)'
       }]
     },
     options: {
@@ -79,8 +79,7 @@ const borderColors = data.map((_, index) => {
         label: 'Number of request',
         data: hreqcount,
         borderWidth: 1,
-        backgroundColor:barColors,
-        borderColor:borderColors
+        backgroundColor:'rgb(11, 40, 65)',
       }]
     },
     options: {

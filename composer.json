@@ -1,6 +1,7 @@
 {
     "require": {
         "phpmailer/phpmailer": "^6.9",
-        "kinde-oss/kinde-auth-php": "^2.0"
+        "kinde-oss/kinde-auth-php": "^2.0",
+        "dompdf/dompdf": "^3.1"
     }
 }

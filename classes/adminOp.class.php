@@ -52,4 +52,17 @@ class AdminOp extends Conn {
       echo "Encounterd an error";
      } 
   }
+  public function getAppointments(){
+    $sql='SELECT h.hname AS hname,h.hlvl AS hlevel,d.dname AS dname,d.dspecialization AS dspecialization,d.dsspecialziation AS dsspecialization,u.name AS uname,u.email AS email FROM appointments AS a
+        INNER JOIN hospitals AS h ON(a.hid=h.hid)
+        INNER JOIN doctordetails AS d ON(a.did=d.did)
+        INNER JOIN users AS u ON(a.userid=u.id) ';
+    $stmt=$this->connect()->prepare($sql);
+    if($stmt->execute()){
+      $data=$stmt->fetchAll(PDO::FETCH_ASSOC);
+      return$data;
+    }else{
+      echo "Failed to obtain appointments";
+    }  
+  }
 }
