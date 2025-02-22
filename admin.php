@@ -1,6 +1,9 @@
 <?php
 require 'classes/conn.class.php';
 require 'classes/adminOp.class.php';
+require 'classes/reportsngraphs.class.php';
+$jsonData=new ReportnGraphs();
+$jsonData->saveToJsonFile();
 $hospitals=new AdminOp();
 $data=$hospitals->getHospital();
 ?>
@@ -31,6 +34,7 @@ $data=$hospitals->getHospital();
         <p><a href="">Analytics</a></p>
         <p><a href="">Report</a></p>
       </div> -->
+      <p><a href="" id="aLink">Analytics</a></p>
     </div>
     <div id="content">
       <div class="navBar">

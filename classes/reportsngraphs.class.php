@@ -1,7 +1,7 @@
 <?php
 class ReportnGraphs extends Conn{
   protected function getDocReqCount(){
-    $sql='SELECT d.dname ,drc.reqCount FROM doctorrequestcount AS drc INNER JOIN doctordetails AS d ON(drc.did=d.did ';
+    $sql='SELECT d.dname ,drc.reqCount FROM doctorrequestcount AS drc INNER JOIN doctordetails AS d ON(drc.did=d.did) ';
     $stmt=$this->connect()->prepare($sql);
     if($stmt->execute()){
       $data=$stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -9,7 +9,7 @@ class ReportnGraphs extends Conn{
     }
   }
   protected function getHosReqCount(){
-    $sql='SELECT h.hname ,hrc.reqCount FROM hospitalrequestcount AS hrc INNER JOIN hospitals AS h ON(hrc.hid=h.hid ';
+    $sql='SELECT h.hname ,hrc.reqCount FROM hospitalrequestcount AS hrc INNER JOIN hospitals AS h ON(hrc.hid=h.hid) ';
     $stmt=$this->connect()->prepare($sql);
     if($stmt->execute()){
       $data=$stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -30,6 +30,6 @@ class ReportnGraphs extends Conn{
     $json_data = json_encode($combinedData);
     
     // Save JSON data to file
-    file_put_contents('data.json', $json_data);
+    file_put_contents('./json/data.json', $json_data);
 }
 }

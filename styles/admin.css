@@ -80,6 +80,7 @@ color: #fff;
 .container #content{
   grid-area: cc;
   background-color:aliceblue;
+  overflow: auto;
 }
 .container #footer{
   grid-area: ff;

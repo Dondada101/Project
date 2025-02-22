@@ -3,8 +3,18 @@
   padding: 0;
   box-sizing: border-box;
 }
+body{
+  height: 100vh;
+  background-color:aliceblue;
+}
 .mychart{
   height: 50%;
   width: 50%;
   margin: 15px 25px 50px 50px;
+}
+.mychart #myChart{
+  background-color:transparent;
+}
+.mychart #myChart1{
+  background-color: transparent;
 }
