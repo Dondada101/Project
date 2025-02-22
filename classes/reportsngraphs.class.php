@@ -16,4 +16,20 @@ class ReportnGraphs extends Conn{
       return $data;
     }
   }
+  public function saveToJsonFile() {
+    $dataOne = $this->getDocReqCount();
+    $dataTwo = $this->getHosReqCount();
+    
+    // Combine both data sets into a single associative array
+    $combinedData = [
+        "data1" => $dataOne,
+        "data2" => $dataTwo
+    ];
+    
+    // Encode combined data to JSON format
+    $json_data = json_encode($combinedData);
+    
+    // Save JSON data to file
+    file_put_contents('data.json', $json_data);
+}
 }
