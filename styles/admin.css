@@ -48,6 +48,19 @@ color: #fff;
 .container #navbar .logo{
   border-bottom: 2px solid black;
 }
+.htable .logo1{
+  text-align: justify;
+  margin-top: 20px;
+  /* padding-bottom: 38px; */
+  color: #000;
+  margin-left: 30px;
+  margin-bottom: 2px;
+}
+.htable .logo1 p {
+  font-size: 20px;
+  font-weight: 600;
+  color: rgb(38, 76, 109); 
+}
 .container #navbar .logo p{
   font-size: 20px;
   font-family: "Edu AU VIC WA NT Arrows", cursive;

@@ -27,6 +27,16 @@ document.addEventListener('DOMContentLoaded', (event) =>{
 });
 document.addEventListener('DOMContentLoaded', (event) =>{
 
+  const sLink=document.getElementById('specLink');
+  sLink.addEventListener('click',function(event){
+    event.preventDefault();
+    document.getElementById('appointments').classList.remove('hidden');
+    document.getElementById('formDoctor').classList.add('hidden');
+    document.getElementById('navBar').style.display='none';
+  })
+});
+document.addEventListener('DOMContentLoaded', (event) =>{
+
   const sLink=document.getElementById('homeLink');
   sLink.addEventListener('click',function(event){
     event.preventDefault();

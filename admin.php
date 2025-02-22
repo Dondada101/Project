@@ -6,6 +6,38 @@ $jsonData=new ReportnGraphs();
 $jsonData->saveToJsonFile();
 $hospitals=new AdminOp();
 $data=$hospitals->getHospital();
+$appointments=$hospitals->getAppointments();
+$currentDate = date('Y-m-d');
+$currentTime = date('H:i:s');
+// Generate HTML content for PDF
+$htmlContent = '
+<div class="htable " id="appointments">
+<div class="logo1">
+      <p>I-Check Generated this Appointment List on '.$currentDate.' at '.$currentTime.' </p>
+      </div>
+<table id="results" class="ht">
+    <thead>
+        <tr>
+            <th>Patient</th>
+            <th>Doctor</th>
+            <th>Doc Email</th>
+            <th>Specialization</th>
+            <th>Hospital</th>
+            <th>Level</th>
+        </tr>
+    </thead>
+    <tbody>';
+foreach ($appointments as $row) {
+    $htmlContent .= '<tr>
+        <td>' . htmlspecialchars($row['uname']) . '</td>
+        <td>' . htmlspecialchars($row['dname']) . '</td>
+        <td>' . htmlspecialchars($row['demail']) . '</td>
+        <td>' . htmlspecialchars($row['dspecialization']) . '</td>
+        <td>' . htmlspecialchars($row['hname']) . '</td>
+        <td>' . htmlspecialchars($row['hlevel']) . '</td>
+    </tr>';
+}
+$htmlContent .= '</tbody></table>';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -43,7 +75,7 @@ $data=$hospitals->getHospital();
         <a href="" id="dLink"><p>Doctors</p></a>
         <a href=""><p>User</p></a>
         <a href="" id="sLink"><p>Specialization</p></a>
-        <a href=""><p>Appointments</p></a>
+        <a href="" id="specLink"><p>Appointments</p></a>
         <a href="" id="hLink"><p>Hospitals</p></a>
       </div>
       
@@ -128,6 +160,36 @@ $data=$hospitals->getHospital();
     </div>
   <canvas id="myChart1"></canvas>
   </div>
+  <div class="htable hidden" id="appointments">
+      <table id="results" class="ht">
+       <thead> 
+        <tr><th>Patient</th> <th>Doctor</th><th>Doc Email</th><th>Specializtion</th> <th>Hospital</th><th>Level</th>
+       </tr> 
+      </thead>
+       <tbody> 
+       <?php foreach($appointments AS $row): ?>
+        <tr>    
+        <th> <?php echo $row['uname']; ?></th>
+        <th> <?php echo $row['dname']; ?></th>
+        <th> <?php echo $row['demail']; ?></th>
+        <th> <?php echo $row['dspecialization']; ?></th>
+        <th> <?php echo $row['hname']; ?></th>
+        <th><?php echo $row['hlevel']; ?></th>
+        </tr>
+        
+        <?php endforeach; ?>
+        <tr>
+          <td>
+          <form action="./generatepdf.php" method="POST">
+                    <input type="hidden" name="htmlContent" value="<?php echo htmlspecialchars($htmlContent); ?>">
+                    <button type="submit">Generate PDF</button>
+          </td>
+          
+        </tr>
+        </tbody>
+       </table> 
+       </div>
+
     </div>
     <div id="footer"></div>
   </div>

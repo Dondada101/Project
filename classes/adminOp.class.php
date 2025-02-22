@@ -53,7 +53,7 @@ class AdminOp extends Conn {
      } 
   }
   public function getAppointments(){
-    $sql='SELECT h.hname AS hname,h.hlvl AS hlevel,d.dname AS dname,d.dspecialization AS dspecialization,d.dsspecialziation AS dsspecialization,u.name AS uname,u.email AS email FROM appointments AS a
+    $sql='SELECT h.hname AS hname,h.hlvl AS hlevel,d.dname AS dname,d.demail AS demail,d.dspecialization AS dspecialization,d.dsspecialziation AS dsspecialization,u.uname AS uname,u.email AS email FROM appointments AS a
         INNER JOIN hospitals AS h ON(a.hid=h.hid)
         INNER JOIN doctordetails AS d ON(a.did=d.did)
         INNER JOIN users AS u ON(a.userid=u.id) ';
