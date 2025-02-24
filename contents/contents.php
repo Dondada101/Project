@@ -34,7 +34,8 @@ class contents{
       <li><a href="">Home</a></li>
       <li><a href="">Home</a></li> -->
       <div class="logout"> 
-                <p> <a href="./logout.php">log Out</a></p>
+                <p id="logout"> <a href="./logout.php">log Out</a></p>
+                <p id="username"><?php echo $_SESSION['un']?></p>
                 <i class="fas fa-user" id="loginbtn"></i>
                 <a href="./message.php"><i class=" fas fa-solid fa-message"></i></a>
             </div>
@@ -46,10 +47,10 @@ class contents{
   public function contentPage(){
     $ap=new AdminOp();
     $data1=$ap->getFreeAppointments();
-    print_r($_SESSION);
+    //print_r($_SESSION);
     ?> 
     <div class="contentPage htable">
-    <?php echo $_SESSION['un']?>
+    
     <!-- <table id="results" class="ht">
        <thead> 
         <tr> <th>Name</th> <th>Level</th> </tr> 

@@ -37,13 +37,13 @@ class Suctrl extends Su{
             header("location: ../signup.php?error=Password must contain letters and numbers");
             exit();
         }
-        if($this->pwm()==false){
-            header("location: ../signup.php?error=emailExists");
-            exit();
-        }
-        else{
-            $result= false;
-        }
+        // if($this->pwm()==false){
+        //     header("location: ../signup.php?error=emailExists");
+        //     exit();
+        // }
+        // else{
+        //     $result= false;
+        // }
         $this->setuser($this->uname,$this->email,$this->pw); 
         
     }
@@ -86,15 +86,15 @@ class Suctrl extends Su{
         }
         return $result;
     }
-    private function pwm( ){
-        $result=null;
-        if($this->checkUser($this->email)){
-            $result=false;
-        }else{
-            $result=true;
-        }
-        return $result;
-    }
+    // private function pwm( ){
+    //     $result=null;
+    //     if($this->checkUser($this->email)){
+    //         $result=false;
+    //     }else{
+    //         $result=true;
+    //     }
+    //     return $result;
+    // }
     private function pwlength(){
         $pw=trim($this->pw);
         if(strlen($pw) <8){ 

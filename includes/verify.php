@@ -10,9 +10,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
      //echo "Verification successful! Access granted."; 
      $apiTwoFactor->clearCode();
      session_start();
-     $_SESSION['Connect']='Login verified';
-     header("location: ../index.php");
+     if( isset($_SESSION['adminid']) && $_SESSION['Connect']='Login verified'){
+      header("location: ../admin.php");
+     
      exit();
+     }else if(isset($_SESSION['uid']) && $_SESSION['Connect']='Login verified'){
+      header("location: ../index.php");
+      exit();
+     }
+     
+     
      } else { 
       echo "Verification failed. Please try again.";
    } 

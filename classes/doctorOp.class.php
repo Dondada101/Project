@@ -64,8 +64,10 @@ class DoctorOp extends Conn{
         if($stmt1->execute()){
           echo "Log in was succesful";
           $user= $stmt1->fetchAll(PDO::FETCH_ASSOC);
-          session_start();
+            session_start();
             $_SESSION["userid"]=$user[0]["did"];
+            $_SESSION["dname"]=$user[0]["dname"];
+            $_SESSION['demail']=$user[0]['demail'];
             $stmt1=null;
             return true;
         }else{

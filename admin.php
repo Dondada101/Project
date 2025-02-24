@@ -1,14 +1,28 @@
 <?php
+session_start();
+if (!isset($_SESSION['adminid'])) {
+    header('Location: login.php');
+    exit();
+}
+// Add these headers to prevent caching
+header("Cache-Control: no-cache, no-store, must-revalidate"); // HTTP 1.1.
+header("Pragma: no-cache"); // HTTP 1.0.
+header("Expires: 0"); // Proxies.
 require 'classes/conn.class.php';
 require 'classes/adminOp.class.php';
 require 'classes/reportsngraphs.class.php';
+require 'classes/logout.class.php';
 $jsonData=new ReportnGraphs();
 $jsonData->saveToJsonFile();
 $hospitals=new AdminOp();
 $data=$hospitals->getHospital();
+$doc=$hospitals->getDoctors();
 $appointments=$hospitals->getAppointments();
+$users=$hospitals->getUsers();
+$logout=new LogOut();
 $currentDate = date('Y-m-d');
 $currentTime = date('H:i:s');
+//$admninid=$_SESSION['admninid'];
 // Generate HTML content for PDF
 $htmlContent = '
 <div class="htable " id="appointments">
@@ -53,10 +67,8 @@ $htmlContent .= '</tbody></table>';
 <body>
   <div class="container">
     <div id="header">
-      <p><a href="">Read</a></p>
-      <p><a href="">Insert</a></p>
-      <p><a href="">Update</a></p>
-      <p><a href="">Delete</a></p>
+     <p></p>
+      
     </div>
     <div id="navbar">
       <div class="logo">
@@ -68,13 +80,17 @@ $htmlContent .= '</tbody></table>';
       </div> -->
       <p><a href="" id="homeLink">Home</a></p>
       <p><a href="" id="aLink">Analytics</a></p>
+      <div class="logout"> 
+                <p> <a href="includes/logout.php?type=admin">log Out</a></p>
+                <i class="fas fa-user" id="loginbtn"></i>
+                <a href="./message.php"><i class=" fas fa-solid fa-message"></i></a>
+            </div>
       
     </div>
     <div id="content">
       <div class="navBar" id="navBar">
         <a href="" id="dLink"><p>Doctors</p></a>
-        <a href=""><p>User</p></a>
-        <a href="" id="sLink"><p>Specialization</p></a>
+        <a href="" id="sLink"><p>User</p></a>
         <a href="" id="specLink"><p>Appointments</p></a>
         <a href="" id="hLink"><p>Hospitals</p></a>
       </div>
@@ -98,6 +114,27 @@ $htmlContent .= '</tbody></table>';
         </select>
         <button type="submit">Insert</button>
       </form>
+      <div class="htable">
+      <table id="results" class="ht">
+       <thead> 
+        <tr><th class="hidden">ID</th> <th>Name</th> <th>Email</th><th>Specialization</th><th>Sub-Specialization</th> </tr> 
+      </thead>
+       <tbody> 
+        </tbody>
+        <?php foreach($doc AS $row): ?>
+        <tr>  
+        <th class="hidden" data-value=" <?php echo $row['did']; ?>"> <?php echo $row['hid']; ?></th>    
+        <th> <?php echo $row['dname']; ?></th>
+        <th> <?php echo $row['demail']; ?></th>
+        <th><?php echo $row['dspecialization']; ?></th>
+        <th><?php echo $row['dsspecialziation']; ?></th>
+        <tH><button id="delete" onclick="">Delete</button></tH>
+        <th><button id="update">Update</button></th>
+        </tr>
+        
+        <?php endforeach; ?>
+       </table> 
+       </div>
       </div>
       <div class="hidden formHospitals" id="formHospitals">
       <h3>Hospital</h3>
@@ -127,22 +164,25 @@ $htmlContent .= '</tbody></table>';
        </div>
       </div>
       <div class="hidden formSpecialization" id="formSpecialization">
-      <h3>Specialization</h3>
-      <form action="">
-        <label for="specialization">Specialization:</label>
-        <select id="specialization" name="specialization" onchange="updateSubcategories()">
-        <option value="">Select a Specialization</option>
-            <option value="ophthalmologists">Ophthalmologists</option>
-            <option value="oncologists">Oncologists</option>
-            <option value="neurologists">Neurologists</option>
-            <option value="paediatricians">Paediatricians</option>
-        </select>
-        <label for="sub-specialization">Sub-specialization:</label>
-        <select id="sub-specialization" name="sub-specialization">
-        <option value="">Select a Sub-Specialization</option>
-        </select>
-        <button>Insert</button>
-      </form>
+      <h3>All Users</h3>
+      <div class="htable">
+      <table id="results" class="ht">
+       <thead> 
+        <tr><th class="hidden">ID</th> <th>Name</th> <th>Email</th><th>
+      </thead>
+       <tbody> 
+        </tbody>
+        <?php foreach($users AS $row): ?>
+        <tr>  
+        <th class="hidden" data-value=" <?php echo $row['id']; ?>"> <?php echo $row['hid']; ?></th>    
+        <th> <?php echo $row['uname']; ?></th>
+        <th><?php echo $row['email']; ?></th>
+        <th><button id="update">Block</button></th>
+        </tr>
+        
+        <?php endforeach; ?>
+       </table> 
+       </div>
       </div>
       <div class="mychart hidden" id="mc">
     <div class="chartTypes">

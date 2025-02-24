@@ -12,6 +12,9 @@ document.addEventListener('DOMContentLoaded', (event) =>{
     document.getElementById('formSpecialization').classList.remove('hidden');
     document.getElementById('formDoctor').classList.add('hidden');
     document.getElementById('formHospitals').classList.add('hidden');
+    document.getElementById('appointments').classList.add('hidden');
+    document.getElementById('mc').classList.add('hidden');
+    document.getElementById('mc1').classList.add('hidden');
   })
 });
 document.addEventListener('DOMContentLoaded', (event) =>{
@@ -22,6 +25,9 @@ document.addEventListener('DOMContentLoaded', (event) =>{
     document.getElementById('mc').classList.remove('hidden');
     document.getElementById('mc1').classList.remove('hidden');
     document.getElementById('formDoctor').classList.add('hidden');
+    document.getElementById('appointments').classList.add('hidden');
+    document.getElementById('formSpecialization').classList.add('hidden');
+    document.getElementById('formHospitals').classList.add('hidden');
     document.getElementById('navBar').style.display='none';
   })
 });
@@ -32,7 +38,11 @@ document.addEventListener('DOMContentLoaded', (event) =>{
     event.preventDefault();
     document.getElementById('appointments').classList.remove('hidden');
     document.getElementById('formDoctor').classList.add('hidden');
-    document.getElementById('navBar').style.display='none';
+    document.getElementById('mc').classList.add('hidden');
+    document.getElementById('mc1').classList.add('hidden');
+    document.getElementById('formHospitals').classList.add('hidden');
+    document.getElementById('formSpecialization').classList.add('hidden');
+    
   })
 });
 document.addEventListener('DOMContentLoaded', (event) =>{
@@ -42,7 +52,10 @@ document.addEventListener('DOMContentLoaded', (event) =>{
     event.preventDefault();
     document.getElementById('mc').classList.add('hidden');
     document.getElementById('mc1').classList.add('hidden');
+    document.getElementById('appointments').classList.add('hidden');
     document.getElementById('formDoctor').classList.remove('hidden');
+    document.getElementById('formHospitals').classList.add('hidden');
+    document.getElementById('formSpecialization').classList.add('hidden');
     document.getElementById('navBar').style.display='flex';
   })
 });
@@ -51,9 +64,12 @@ document.addEventListener('DOMContentLoaded', (event) =>{
   const dLink=document.getElementById('dLink');
   dLink.addEventListener('click',function(event){
     event.preventDefault();
-    document.getElementById('formSpecialization').classList.add('hidden');
     document.getElementById('formDoctor').classList.remove('hidden');
+    document.getElementById('formSpecialization').classList.add('hidden');
     document.getElementById('formHospitals').classList.add('hidden');
+    document.getElementById('appointments').classList.add('hidden');
+    document.getElementById('mc').classList.add('hidden');
+    document.getElementById('mc1').classList.add('hidden');
   })
 });
 
@@ -65,6 +81,9 @@ document.addEventListener('DOMContentLoaded', (event) =>{
     document.getElementById('formSpecialization').classList.add('hidden');
     document.getElementById('formDoctor').classList.add('hidden');
     document.getElementById('formHospitals').classList.remove('hidden');
+    document.getElementById('appointments').classList.add('hidden');
+    document.getElementById('mc').classList.add('hidden');
+    document.getElementById('mc1').classList.add('hidden');
   })
 });
 function dDetails(event){

@@ -29,6 +29,16 @@ class AdminOp extends Conn {
     $stmt->execute();
     return $stmt->fetchAll(PDO::FETCH_ASSOC);
   }
+  public function getUsers(){
+    $stmt=$this->connect()->prepare("SELECT * FROM users ");
+    $stmt->execute();
+    return $stmt->fetchAll(PDO::FETCH_ASSOC);
+  }
+  public function getDoctors(){
+    $stmt=$this->connect()->prepare("SELECT * FROM doctordetails ");
+    $stmt->execute();
+    return $stmt->fetchAll(PDO::FETCH_ASSOC);
+  }
   protected function deleteHospital($hid){
     $sql="DELETE FROM hospitals WHERE hid=:hid";
     $stmt=$this->connect()->prepare($sql);

@@ -32,10 +32,39 @@ class Login extends Conn {
        
         $checkpwd=password_verify($pw,$pwhashed[0]["upassword"]);
 
-        if($checkpwd == false){
-            $stmt=null;
-            header("location:../index.php?error=wrongcredentiials");
-            exit(); 
+        if($checkpwd == false){ 
+            $sqladmin='SELECT apassword FROM aadmin WHERE aemail=:aemail';
+            $stmtadmin=$this->connect()->prepare($sqladmin);
+            $stmtadmin->bindParam('aemail',$email);
+            $stmtadmin->execute();
+            $pwhashed1=$stmtadmin->fetchAll(PDO::FETCH_ASSOC);
+            $checkpwd1=password_verify($pw,$pwhashed1[0]["apassword"]);
+            echo $checkpwd1.$email;
+            if($checkpwd1 == false){
+                $stmtadmin=null;
+                header("location:../index.php?error=wrongcredentiials1");
+                exit(); 
+               }elseif($checkpwd1==true){
+                $stmtadmin1 = $this->connect()->prepare("SELECT * FROM aadmin WHERE aemail=:aemail ");
+                $stmtadmin1->bindParam('aemail',$email);
+                $stmtadmin1->execute();
+                // if(!$stmt->execute(array($email,$pwhashed1[0]["apassword"]))){
+                //     $stmt=null;
+                //     header("location:../index.php?error=stmtfailed");
+                //     exit(); 
+                //    }
+                   if($stmtadmin1->rowCount()==0){
+                    $stmt=null;
+                 header("location:../index.php?error=usernotfound1");
+                 exit(); 
+                }
+                $admin=$stmtadmin1->fetchAll(PDO::FETCH_ASSOC);
+                session_start();
+                $_SESSION["adminid"]=$admin[0]["aid"];
+                $_SESSION['an']=$admin[0]['aname'];
+                $stmtadmin1=null;
+               }
+
            }elseif($checkpwd==true){
             $stmt = $this->connect()->prepare("SELECT * FROM users WHERE email=? AND upassword=?;");
             if(!$stmt->execute(array($email,$pwhashed[0]["upassword"]))){

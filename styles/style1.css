@@ -28,21 +28,25 @@
   flex-direction: row;
   gap: 10px;
 }
-.web-skeleton .navbar .logout p{
+.web-skeleton .navbar .logout #username{
+  color: #fff;
+  padding: 10px 10px 5px 10px;
+}
+.web-skeleton .navbar .logout #logout{
   border: 2px solid #fff;
   padding: 10px 10px 5px 10px;
   background-color: #f3f3f3;
 }
-.web-skeleton .navbar .logout p:hover{
+.web-skeleton .navbar .logout #logout:hover{
   background-color: transparent;
   color: #fff;
   border: none;
 }
-.web-skeleton .navbar .logout p a{
+.web-skeleton .navbar .logout #logout a{
   text-decoration: none;
   color: #000;
 }
-.web-skeleton .navbar .logout p a:hover{
+.web-skeleton .navbar .logout #logout a:hover{
   color: #fff;
   font-size: 20px;
 }

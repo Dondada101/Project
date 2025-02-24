@@ -26,14 +26,19 @@ if(isset($userid)){
 </head>
 <body>
   <div class="container">
-    <div id="header"></div>
+    <div id="header">
+      <div class="doctorDetails">
+        <p><?php echo $_SESSION['dname']?></p>
+        <p>@<?php echo $_SESSION['demail']?></p>
+      </div>
+    </div>
     <div id="navbar">
     <div class="logo">
       <p>ICheck Ratiba</p>
       </div>
       <div class="ratiba">
         <a href="">Insert </a>
-        <a href="logout.php">log Out</a>
+        <a href="includes/logout.php?type=doc">log Out</a>
       </div>
     </div>
     <div id="content">
