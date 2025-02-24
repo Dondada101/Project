@@ -34,7 +34,7 @@ class contents{
       <li><a href="">Home</a></li>
       <li><a href="">Home</a></li> -->
       <div class="logout"> 
-                <p id="logout"> <a href="./logout.php">log Out</a></p>
+                <p id="logout"> <a href="./includes/logout.php?type=user">log Out</a></p>
                 <p id="username"><?php echo $_SESSION['un']?></p>
                 <i class="fas fa-user" id="loginbtn"></i>
                 <a href="./message.php"><i class=" fas fa-solid fa-message"></i></a>
