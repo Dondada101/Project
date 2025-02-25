@@ -36,13 +36,13 @@
 text-decoration: none;
 color: #fff;
 }
-.container #header :nth-child(4){
-  /* margin-right: 10px; */
-}
-.container #header :nth-child(1){
-  /* margin-left: 10px;
-  margin-right: 90px; */
-}
+/* .container #header :nth-child(4){
+  margin-right: 10px;
+} */
+/* .container #header :nth-child(1){
+  margin-left: 10px;
+  margin-right: 90px;
+} */
 .container #navbar{
   grid-area: mm;
   background-color: rgb(48, 74, 97);
