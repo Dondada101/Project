@@ -26,8 +26,11 @@ $currentTime = date('H:i:s');
 // Generate HTML content for PDF
 $htmlContent = '
 <div class="htable " id="appointments">
+<div id="watermark">
+<img src="./images/ichecklogo1.png"/>
+<div/>
 <div class="logo1">
-      <p>I-Check Generated this Appointment List on '.$currentDate.' at '.$currentTime.' </p>
+      <p>Appointment List was Generated on '.$currentDate.' at '.$currentTime.' </p>
       </div>
 <table id="results" class="ht">
     <thead>
@@ -78,14 +81,12 @@ $htmlContent .= '</tbody></table>';
         <p><a href="">Analytics</a></p>
         <p><a href="">Report</a></p>
       </div> -->
+      <div class="adminlinks">
       <p><a href="" id="homeLink">Home</a></p>
       <p><a href="" id="aLink">Analytics</a></p>
-      <div class="logout"> 
-                <p> <a href="includes/logout.php?type=admin">log Out</a></p>
-                <i class="fas fa-user" id="loginbtn"></i>
-                <a href="./message.php"><i class=" fas fa-solid fa-message"></i></a>
-            </div>
-      
+      <p> <a href="includes/logout.php?type=admin">log Out</a></p>
+      </div>
+
     </div>
     <div id="content">
       <div class="navBar" id="navBar">

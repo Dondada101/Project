@@ -351,12 +351,12 @@ color: #fff;
 /* Chart Style */
 .mychart{
   height: 50%;
-  width: 50%;
+  width: 80%;
   margin: 15px 25px 80px 50px;
 }
 .mychartt{
   height: 50%;
-  width: 50%;
+  width: 80%;
   margin: 15px 25px 80px 50px;
 }
 .mychart #myChart{
@@ -393,3 +393,24 @@ color: #fff;
 #navbar p{
   padding-bottom: 10px;
 }
+#watermark img{
+  height: 100px;
+  width: 100px;
+  padding-top: 10px ;
+}
+/* Admin  Links */
+.container #navbar .adminlinks{
+  height: 150px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+ }
+ .container #navbar .adminlinks a{
+  text-decoration: none;
+  padding: 10px 0px 5px 15px;
+  color: #fff;
+ }
+ .container #navbar .adminlinks a:hover{
+  text-decoration: underline;
+  font-size: 20px;
+ }

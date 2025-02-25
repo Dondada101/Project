@@ -47,7 +47,7 @@ const borderColors = data.map((_, index) => {
         label: 'Number of request',
         data: dreqcount,
         borderWidth: 1,
-        backgroundColor:'rgb(11, 40, 65)'
+        backgroundColor:'rgb(109, 145, 177)'
       }]
     },
     options: {
@@ -79,7 +79,7 @@ const borderColors = data.map((_, index) => {
         label: 'Number of request',
         data: hreqcount,
         borderWidth: 1,
-        backgroundColor:'rgb(11, 40, 65)',
+        backgroundColor:'rgb(102, 143, 179)',
       }]
     },
     options: {
