@@ -49,6 +49,16 @@ class AdminOp extends Conn {
       echo "Record not deleted an error occured";
     }
   }
+  protected function deleteDoc($did){
+    $sql="DELETE FROM doctordetails WHERE did=:did";
+    $stmt=$this->connect()->prepare($sql);
+    $stmt->bindParam('did',$did);
+    if($stmt->execute()){
+      echo "Record deleted succesfully";
+    }else{
+      echo "Record not deleted an error occured";
+    }
+  }
   public function getFreeAppointments(){
     $sql='SELECT  d.dname AS dname,d.dspecialization AS specialization,d.dsspecialziation AS subspecialization,d.did AS did,d.demail AS demail, h.hname AS hospital,h.hlvl AS hlevel,h.hid AS hid, r.s_time AS astart,r.rdate AS adate,r.e_time AS aend ,r.rid AS rid FROM ratiba AS r 
         INNER JOIN hospitals AS h ON(r.hid=h.hid)

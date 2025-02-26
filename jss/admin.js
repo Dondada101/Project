@@ -147,3 +147,15 @@ function delHos(button){
   })
   .catch(error => console.error('Error', error)); 
 }
+function delDoc(button){
+  let tr = button.closest('tr');
+  let th = tr.querySelector('th[data-value]');
+  let did = th.getAttribute('data-value');
+  console.log("Doctor id:" +did);
+  fetch('./includes/adminOp1.php',{
+    method:'POST',
+    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+    body: new URLSearchParams({ did:did ,action:'delete'}) 
+  })
+  .catch(error => console.error('Error', error)); 
+}

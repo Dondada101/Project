@@ -124,13 +124,13 @@ $htmlContent .= '</tbody></table>';
         </tbody>
         <?php foreach($doc AS $row): ?>
         <tr>  
-        <th class="hidden" data-value=" <?php echo $row['did']; ?>"> <?php echo $row['hid']; ?></th>    
+        <th class="hidden" data-value=" <?php echo $row['did']; ?>"> <?php echo $row['did']; ?></th>    
         <th> <?php echo $row['dname']; ?></th>
         <th> <?php echo $row['demail']; ?></th>
         <th><?php echo $row['dspecialization']; ?></th>
         <th><?php echo $row['dsspecialziation']; ?></th>
         <tH><button id="delete" onclick="">Delete</button></tH>
-        <th><button id="update">Update</button></th>
+        <!-- <th><button id="update">Update</button></th> -->
         </tr>
         
         <?php endforeach; ?>
@@ -157,7 +157,7 @@ $htmlContent .= '</tbody></table>';
         <th> <?php echo $row['hname']; ?></th>
         <th><?php echo $row['hlvl']; ?></th>
         <tH><button id="delete" onclick="delHos(this)">Delete</button></tH>
-        <th><button id="update">Update</button></th>
+        <!-- <th><button id="update">Update</button></th> -->
         </tr>
         
         <?php endforeach; ?>

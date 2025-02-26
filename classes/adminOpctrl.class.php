@@ -9,6 +9,7 @@ class AdminOpCtrl extends AdminOp{
   private $hname;
   private $hlvl;
   private $hid;
+  private $did;
   public function __construct($params)
   {
    $this->dname=isset($params['dname']) ? $params['dname']:null;
@@ -19,6 +20,7 @@ class AdminOpCtrl extends AdminOp{
    $this->hname=isset($params['hname']) ? $params['hname']:null;
    $this->hlvl=isset($params['hlvl'])? $params['hlvl']:null;
    $this->hid=isset($params['hid'])? $params['hid']:null;
+   $this->did=isset($params['did']) ? $params['did'] : null;
   }
   
   public function addDoctorDetails(){
@@ -36,6 +38,9 @@ class AdminOpCtrl extends AdminOp{
   }
   public function deleteHospitalDetails(){
     $this->deleteHospital($this->hid);
+  }
+  public function deleteDocDet(){
+    $this->deleteDoc($this->did);
   }
   private function emptysu( ){
     $result=false;

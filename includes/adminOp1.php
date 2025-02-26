@@ -28,6 +28,19 @@ if($_SERVER['REQUEST_METHOD']==='POST'){
     ];
     $delete= new AdminOpCtrl($params);
     $delete->deleteHospitalDetails();
+  }else if (isset($_POST['did']) && isset($_POST['action']) && $_POST['action']='delete'){
+    $did=htmlspecialchars($_POST['did'],ENT_QUOTES,'UTF-8');
+    echo gettype($did);
+    $didint=(int)$did;
+    echo gettype($didint);
+    require '../classes/conn.class.php';
+    require '../classes/adminOp.class.php';
+    require '../classes/adminOpctrl.class.php';
+    $params=[
+      'did'=>$didint
+    ];
+    $delete= new AdminOpCtrl($params);
+    $delete->deleteDocDet();
   }
  
 }
